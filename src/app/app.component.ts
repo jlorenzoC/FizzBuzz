@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { interval } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'fizzbuzz';
+  collection: number[] = [];
+
+  constructor() {
+    interval(500).pipe(take(100)).subscribe(val =>
+      this.collection.push(val + 1)
+    )
+  }
 }
