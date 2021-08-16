@@ -8,15 +8,15 @@ describe('FizzbuzzPipe', () => {
 
   it('should return 1', () => {
     const pipe = new FizzbuzzPipe();
-    expect(pipe.transform(1)).toEqual(1);
+    expect(pipe.transform(1, true)).toEqual(1);
   });
 
   it('should return 2', () => {
     const pipe = new FizzbuzzPipe();
-    expect(pipe.transform(2)).toEqual(2);
+    expect(pipe.transform(2, true)).toEqual(2);
   });
 
-  it('shouldn\'t return 3 for 3', () => {
+  it("shouldn't return 3 for 3", () => {
     const pipe = new FizzbuzzPipe();
     expect(pipe.transform(3)).not.toEqual(3);
   });

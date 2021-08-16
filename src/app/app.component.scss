@@ -1,1 +1,22 @@
+:host::ng-deep {
+  .p-card {
+    height: 100%;
+  }
+}
 
+.p-inputtext {
+  width: 100%;
+}
+
+// .card-image-buzz {
+//   height: 150px;
+//   transform: translate(80px, -80px);
+// }
+// .card-image-fizz {
+//   height: 100px;
+//   transform: translate(80px, -55px);
+// }
+// .card-image-fizzbuzz {
+//   height: 60px;
+//   transform: translate(55px, -35px);
+// }

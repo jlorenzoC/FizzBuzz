@@ -1,14 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'fizzbuzz'
+  name: 'fizzbuzz',
 })
 export class FizzbuzzPipe implements PipeTransform {
-
-  transform(value: number): number | string {
+  transform(value: number, retornaElNumero?: boolean): number | string {
     let fizzBuzz = '';
-    fizzBuzz += this.getFizz(value) + this.getBuzz(value)
-    return fizzBuzz.length ? fizzBuzz : value;
+    fizzBuzz += this.getFizz(value) + this.getBuzz(value);
+    return fizzBuzz.length ? fizzBuzz : retornaElNumero ? value : '';
   }
 
   private getFizz(value: number): string {
