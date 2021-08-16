@@ -1,0 +1,7 @@
+{
+  "baseUrl": "http://localhost:4200",
+  "ignoreTestFiles": [
+    "**/1-getting-started/*.js",
+    "**/2-advanced-examples/*.js"
+  ]
+}
