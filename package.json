@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng build --prod --base-href=/FizzBuzz/",
+    "deploy": "ng build --configuration --watch --base-href=/fizzbuzz/",
     "testCoverageReport": "ng test --no-watch --code-coverage",
     "testCoverageReportInWhatchMode": "ng test --code-coverage",
     "cypress:open": "cypress open"
