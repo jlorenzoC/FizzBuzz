@@ -1,11 +1,19 @@
-export class ImageBadge {
+import { environment } from './../../environments/environment';
+export abstract class ImageBadge {
+  private pathToImageFolder = `..${environment.imagesPath}/assets/image/`;
   constructor(
-    public show = false,
-    public imageSource = '',
-    public imageAlternative = '',
-    public cssClassName = '',
-    public badgeValue = '',
-    public toolTip = '',
-    public badgeSeverity = ''
+    public fizzbuzzType: string | number,
+    public numberProcessedByFizzBuzzAlgorithm: number,
+    public imageNameAndFormat = 'image-not-found.png'
   ) {}
+
+  abstract get imageAlternative(): string;
+
+  abstract get tooltip(): string;
+
+  abstract get badgeSeverity(): string;
+
+  getImagePath() {
+    return this.pathToImageFolder + this.imageNameAndFormat;
+  }
 }

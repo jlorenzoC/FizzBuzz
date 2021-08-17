@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
-import { Subscription } from 'rxjs';
-import { interval } from 'rxjs';
+import { interval, Subscription } from 'rxjs';
 import { take } from 'rxjs/operators';
 
 @Component({
@@ -9,12 +8,11 @@ import { take } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'FizzBuzz';
-  queryValue!: string;
   subscription: Subscription;
-  collection: number[] = [];
-  temporalCollection: number[] = [];
+  cardsFiltered: number[] = [];
+  numbersToProcessByFzBzPipe: number[] = [];
   readonly AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM = 100;
 
   constructor(private primengConfig: PrimeNGConfig) {
@@ -27,24 +25,28 @@ export class AppComponent implements OnInit {
     this.primengConfig.ripple = true;
   }
 
-  filter(value: string) {
+  filter(value: string): void {
     const filterCriteria = value.trim();
-    if (filterCriteria) this.temporalCollection = this.filterCollection(value);
+    if (filterCriteria) this.cardsFiltered = this.filterCollection(value);
     else this.assignOriginalCollection();
   }
 
   private assignOriginalCollection(): void {
-    this.temporalCollection = this.collection;
+    this.cardsFiltered = this.numbersToProcessByFzBzPipe;
   }
 
   private filterCollection(valueCriteria: string): number[] {
-    return this.collection.filter((ele) =>
+    return this.numbersToProcessByFzBzPipe.filter((ele) =>
       ele.toString().includes(valueCriteria.trim())
     );
   }
 
   private setCollection = (val: number) => {
-    this.collection.push(val + 1);
-    this.temporalCollection = this.collection.slice();
+    this.numbersToProcessByFzBzPipe.push(val + 1);
+    this.cardsFiltered = this.numbersToProcessByFzBzPipe.slice();
   };
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 }

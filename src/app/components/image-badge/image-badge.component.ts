@@ -1,20 +1,21 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { BuzzImageBadge } from 'src/app/models/BuzzImageBadge';
+import { FizzBuzzImageBadge } from 'src/app/models/FizzBuzzImageBadge';
+import { FizzImageBadge } from 'src/app/models/FizzImageBadge';
 import { ImageBadge } from './../../models/ImageBadge';
 
 @Component({
   selector: 'app-image-badge',
   template: `
-    <div class="flex justify-content-between">
+    <div class="flex justify-content-between" *ngIf="imageBadge">
       <img
-        *ngIf="imageBadge.show"
-        [src]="imageBadge.imageSource"
+        [src]="imageBadge.getImagePath()"
         [alt]="imageBadge.imageAlternative"
-        [class]="imageBadge.cssClassName"
+        [class]="imageBadge.fizzbuzzType"
       />
       <p-badge
-        *ngIf="imageBadge.show"
-        [value]="imageBadge.badgeValue"
-        [pTooltip]="imageBadge.toolTip"
+        [value]="imageBadge.fizzbuzzType.toString()"
+        [pTooltip]="imageBadge.tooltip"
         [severity]="imageBadge.badgeSeverity"
         class="cursor-pointer margin-top"
       ></p-badge>
@@ -22,15 +23,15 @@ import { ImageBadge } from './../../models/ImageBadge';
   `,
   styles: [
     `
-      .card-image-buzz {
+      .Buzz {
         height: 150px;
         transform: translate(80px, -80px);
       }
-      .card-image-fizz {
+      .Fizz {
         height: 100px;
         transform: translate(80px, -55px);
       }
-      .card-image-fizzbuzz {
+      .FizzBuzz {
         height: 60px;
         transform: translate(55px, -35px);
       }
@@ -42,5 +43,18 @@ import { ImageBadge } from './../../models/ImageBadge';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImageBadgeComponent {
-  @Input() imageBadge: ImageBadge = new ImageBadge();
+  imageBadge!: ImageBadge;
+  @Input() set fizzbuzzType(input: { type: string; number: number }) {
+    switch (input.type) {
+      case 'Fizz':
+        this.imageBadge = new FizzImageBadge(input.type, input.number);
+        break;
+      case 'Buzz':
+        this.imageBadge = new BuzzImageBadge(input.type, input.number);
+        break;
+      case 'FizzBuzz':
+        this.imageBadge = new FizzBuzzImageBadge(input.type, input.number);
+        break;
+    }
+  }
 }

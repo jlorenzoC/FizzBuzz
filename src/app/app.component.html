@@ -9,7 +9,7 @@
       <span class="p-input-icon-right w-full mb-3">
         <i
           [class]="
-            collection.length !==
+            numbersToProcessByFzBzPipe.length !==
             AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM
               ? 'pi pi-spin pi-spinner'
               : 'pi pi-search'
@@ -22,7 +22,7 @@
           pInputText
           placeholder="Search by number ..."
           [disabled]="
-            collection.length !==
+            numbersToProcessByFzBzPipe.length !==
             AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM
           "
         />
@@ -33,56 +33,20 @@
 
 <div class="flex justify-content-center w-full flex-wrap">
   <p-card
-    [attr.data-key]="item"
+    [attr.data-key]="numberToProccessByFzBzPipe"
     class="fizzbuzz-card"
-    *ngFor="let item of temporalCollection"
+    *ngFor="let numberToProccessByFzBzPipe of cardsFiltered"
     styleClass="h-8rem m-3 shadow-8 scalein animation-duration-100 text-900"
     [style]="{
       width: '300px',
-      opacity: (item | fizzbuzz) == '' ? '0.5' : '1'
+      opacity: (numberToProccessByFzBzPipe | fizzbuzz) == '' ? '0.5' : '1'
     }"
-    [header]="item.toString()"
+    [header]="numberToProccessByFzBzPipe.toString()"
   >
     <app-image-badge
-      [imageBadge]="{
-        show: (item | fizzbuzz: false) === 'FizzBuzz',
-        imageSource: '../assets/image/FizzBuzz.png',
-        imageAlternative: 'FizzBuzz word',
-        cssClassName: 'card-image-fizzbuzz',
-        badgeValue: 'FizzBuzz',
-        toolTip:
-          'The remainder of the division of number ' +
-          item +
-          ', by number 3 and 5, is 0',
-        badgeSeverity: 'success'
-      }"
-    ></app-image-badge>
-    <app-image-badge
-      [imageBadge]="{
-        show: (item | fizzbuzz: false) === 'Buzz',
-        imageSource: '../assets/image/buzz.png',
-        imageAlternative: 'Buzz Lightyear',
-        cssClassName: 'card-image-buzz',
-        badgeValue: 'Buzz',
-        toolTip:
-          'The remainder of the division of number ' +
-          item +
-          ', by number 5, is 0',
-        badgeSeverity: 'info'
-      }"
-    ></app-image-badge>
-    <app-image-badge
-      [imageBadge]="{
-        show: (item | fizzbuzz: false) === 'Fizz',
-        imageSource: '../assets/image/fizz.png',
-        imageAlternative: 'Fizz drink',
-        cssClassName: 'card-image-fizz',
-        badgeValue: 'Fizz',
-        toolTip:
-          'The remainder of the division of number ' +
-          item +
-          ', by number 3, is 0',
-        badgeSeverity: 'warning'
+      [fizzbuzzType]="{
+        type: (numberToProccessByFzBzPipe | fizzbuzz: false).toString(),
+        number: numberToProccessByFzBzPipe
       }"
     ></app-image-badge>
   </p-card>
