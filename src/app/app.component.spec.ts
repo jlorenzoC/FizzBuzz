@@ -19,14 +19,4 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app.title).toEqual('FizzBuzz');
   });
-
-  // it('should render title', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.nativeElement;
-  //   expect(
-  //     compiled.querySelectorAll('.fizzbuzz-filter-card div.p-card-title')
-  //       .textContent
-  //   ).toContain('FizzBuzz');
-  // });
 });
