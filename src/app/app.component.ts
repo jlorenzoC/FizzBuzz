@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { interval, Subscription } from 'rxjs';
 import { take } from 'rxjs/operators';
@@ -10,10 +10,30 @@ import { take } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'FizzBuzz';
+  displayTopBar = false;
   subscription: Subscription;
   cardsFiltered: number[] = [];
   numbersToProcessByFzBzPipe: number[] = [];
   readonly AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM = 100;
+  filterValue!: number;
+  filterInTopbar!: HTMLElement | null;
+  filterOutOfTopbar!: HTMLElement | null;
+
+  @HostListener('window:scroll', ['$event.target']) onScroll(
+    document: Document
+  ): void {
+    this.filterInTopbar = document.getElementById('fzbz-topbar-input-filter');
+    this.filterOutOfTopbar = document.getElementById('fzbz-input-filter');
+    const yPosition = document.documentElement.scrollTop;
+
+    if (yPosition >= 100) {
+      this.displayTopBar = true;
+      this.filterInTopbar?.focus();
+    } else {
+      this.displayTopBar = false;
+      this.filterOutOfTopbar?.focus();
+    }
+  }
 
   constructor(private primengConfig: PrimeNGConfig) {
     this.subscription = interval(50)

@@ -1,3 +1,45 @@
+<section class="fzbz-scroll-search-top-bar">
+  <p-sidebar
+    [dismissible]="false"
+    [showCloseIcon]="false"
+    [closeOnEscape]="false"
+    position="top"
+    [(visible)]="displayTopBar"
+    [modal]="false"
+    [style]="{ height: '7em' }"
+  >
+    <div class="w-full flex flex-column align-items-center">
+      <span
+        *ngIf="
+          numbersToProcessByFzBzPipe.length ===
+            AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM;
+          else skeletonOfFilterOnTopbar
+        "
+        class="p-input-icon-right w-8"
+      >
+        <i class="pi pi-search"></i>
+        <input
+          id="fzbz-topbar-input-filter"
+          #filterInputOnTopBar
+          (input)="filter(filterInputOnTopBar.value)"
+          [(ngModel)]="filterValue"
+          pInputText
+          placeholder="Search by number ..."
+          pKeyFilter="int"
+        />
+      </span>
+      <ng-template #skeletonOfFilterOnTopbar>
+        <p-skeleton
+          class="w-7"
+          styleClass="my-2"
+          height="3rem"
+          borderRadius="16px"
+        ></p-skeleton>
+      </ng-template>
+    </div>
+  </p-sidebar>
+</section>
+
 <section class="fzbz-filter flex align-items-center flex-column">
     <p-card
     *ngIf="
