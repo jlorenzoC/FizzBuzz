@@ -4,10 +4,10 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'fizzbuzz',
 })
 export class FizzbuzzPipe implements PipeTransform {
-  transform(value: number, retornaElNumero?: boolean): number | string {
+  transform(value: number, returnTheNumber?: boolean): number | string {
     let fizzBuzz = '';
     fizzBuzz += this.getFizz(value) + this.getBuzz(value);
-    return fizzBuzz.length ? fizzBuzz : retornaElNumero ? value : '';
+    return fizzBuzz.length ? fizzBuzz : returnTheNumber ? value : '';
   }
 
   private getFizz(value: number): string {
