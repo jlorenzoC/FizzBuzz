@@ -7,6 +7,7 @@ import { TagModule } from 'primeng/tag';
 import { TooltipModule } from 'primeng/tooltip';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { ScrollTopModule } from 'primeng/scrolltop';
+import { SkeletonModule } from 'primeng/skeleton';
 
 @NgModule({
   exports: [
@@ -18,6 +19,7 @@ import { ScrollTopModule } from 'primeng/scrolltop';
     TooltipModule,
     KeyFilterModule,
     ScrollTopModule,
+    SkeletonModule,
   ],
 })
 export class PrimengModule {}

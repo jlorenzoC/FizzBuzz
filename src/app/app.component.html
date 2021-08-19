@@ -1,42 +1,47 @@
-<div class="flex align-items-center flex-column">
-  <div class="sm:m-4 mt-4 mb-3 w-11 sm:w-7">
+<section class="fzbz-filter flex align-items-center flex-column">
     <p-card
-      class="fizzbuzz-filter-card"
-      styleClass="h-12rem shadow-8"
+    *ngIf="
+      numbersToProcessByFzBzPipe.length ===
+        AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM;
+      else skeletonFilterCard
+    "
+    id="fizzbuzz-filter-card"
+    class="fizzbuzz-filter-card sm:m-4 mt-4 mb-3 w-11 sm:w-7"
+    styleClass="shadow-8"
       [header]="title"
       subheader="Which number is Fizz, Buzz, or FizzBuzz?"
     >
-      <span class="p-input-icon-right w-full mb-3">
-        <i
-          [class]="
-            numbersToProcessByFzBzPipe.length !==
-            AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM
-              ? 'pi pi-spin pi-spinner'
-              : 'pi pi-search'
-          "
-        ></i>
+    <span class="p-input-icon-right w-full">
+      <i class="pi pi-search"></i>
         <input
+        id="fzbz-input-filter"
           #filterInput
           (input)="filter(filterInput.value)"
-          pKeyFilter="int"
+        [(ngModel)]="filterValue"
           pInputText
           placeholder="Search by number ..."
-          [disabled]="
-            numbersToProcessByFzBzPipe.length !==
-            AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM
-          "
+        pKeyFilter="int"
         />
       </span>
     </p-card>
-  </div>
-</div>
+  <ng-template #skeletonFilterCard>
+    <app-skeleton-fzbz-filter-card></app-skeleton-fzbz-filter-card>
+  </ng-template>
+</section>
 
-<div class="flex justify-content-center w-full flex-wrap">
+<section class="fzbz-cards flex justify-content-center flex-wrap">
+  <ng-container
+    *ngIf="
+      numbersToProcessByFzBzPipe.length ==
+        AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM;
+      else skeletonCards
+    "
+  >
   <p-card
     [attr.data-key]="numberToProccessByFzBzPipe"
     class="fizzbuzz-card"
     *ngFor="let numberToProccessByFzBzPipe of cardsFiltered"
-    styleClass="h-8rem m-3 shadow-8 scalein animation-duration-100 text-900"
+      styleClass="h-8rem m-3 shadow-8 text-900"
     [style]="{
       width: '300px',
       opacity: (numberToProccessByFzBzPipe | fizzbuzz) == '' ? '0.5' : '1'
@@ -50,4 +55,13 @@
       }"
     ></app-image-badge>
   </p-card>
+  </ng-container>
+  <ng-template #skeletonCards>
+    <app-skeleton-fzbz-cards
+      class="fadein"
+      *ngFor="let numberToProccessByFzBzPipe of cardsFiltered"
+    ></app-skeleton-fzbz-cards>
+  </ng-template>
+</section>
+
 <p-scrollTop></p-scrollTop>
