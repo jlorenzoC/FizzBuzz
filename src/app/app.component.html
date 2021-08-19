@@ -41,7 +41,8 @@
 </section>
 
 <section class="fzbz-filter flex align-items-center flex-column">
-    <p-card
+  <p-card
+    [@hideFilterCard]="displayTopBar ? 'hide' : 'show'"
     *ngIf="
       numbersToProcessByFzBzPipe.length ===
         AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM;
@@ -50,22 +51,22 @@
     id="fizzbuzz-filter-card"
     class="fizzbuzz-filter-card sm:m-4 mt-4 mb-3 w-11 sm:w-7"
     styleClass="shadow-8"
-      [header]="title"
-      subheader="Which number is Fizz, Buzz, or FizzBuzz?"
-    >
+    [header]="title"
+    subheader="Which number is Fizz, Buzz, or FizzBuzz?"
+  >
     <span class="p-input-icon-right w-full">
       <i class="pi pi-search"></i>
-        <input
+      <input
         id="fzbz-input-filter"
-          #filterInput
-          (input)="filter(filterInput.value)"
+        #filterInput
+        (input)="filter(filterInput.value)"
         [(ngModel)]="filterValue"
-          pInputText
-          placeholder="Search by number ..."
+        pInputText
+        placeholder="Search by number ..."
         pKeyFilter="int"
-        />
-      </span>
-    </p-card>
+      />
+    </span>
+  </p-card>
   <ng-template #skeletonFilterCard>
     <app-skeleton-fzbz-filter-card></app-skeleton-fzbz-filter-card>
   </ng-template>
@@ -79,24 +80,24 @@
       else skeletonCards
     "
   >
-  <p-card
-    [attr.data-key]="numberToProccessByFzBzPipe"
-    class="fizzbuzz-card"
-    *ngFor="let numberToProccessByFzBzPipe of cardsFiltered"
+    <p-card
+      [attr.data-key]="numberToProccessByFzBzPipe"
+      class="fizzbuzz-card"
+      *ngFor="let numberToProccessByFzBzPipe of cardsFiltered"
       styleClass="h-8rem m-3 shadow-8 text-900"
-    [style]="{
-      width: '300px',
-      opacity: (numberToProccessByFzBzPipe | fizzbuzz) == '' ? '0.5' : '1'
-    }"
-    [header]="numberToProccessByFzBzPipe.toString()"
-  >
-    <app-image-badge
-      [fizzbuzzType]="{
-        type: (numberToProccessByFzBzPipe | fizzbuzz: false).toString(),
-        number: numberToProccessByFzBzPipe
+      [style]="{
+        width: '300px',
+        opacity: (numberToProccessByFzBzPipe | fizzbuzz) == '' ? '0.5' : '1'
       }"
-    ></app-image-badge>
-  </p-card>
+      [header]="numberToProccessByFzBzPipe.toString()"
+    >
+      <app-image-badge
+        [fizzbuzzType]="{
+          type: (numberToProccessByFzBzPipe | fizzbuzz: false).toString(),
+          number: numberToProccessByFzBzPipe
+        }"
+      ></app-image-badge>
+    </p-card>
   </ng-container>
   <ng-template #skeletonCards>
     <app-skeleton-fzbz-cards
