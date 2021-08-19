@@ -35,9 +35,6 @@ import { ImageBadge } from './../../models/ImageBadge';
         height: 60px;
         transform: translate(55px, -35px);
       }
-      .margin-top {
-        margin-top: 20px;
-      }
     `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
