@@ -13,7 +13,7 @@ export class FizzImageBadge extends ImageBadge {
     return 'Fizz drink';
   }
   get tooltip(): string {
-    return `The remainder of the division of number ${this.numberProcessedByFizzBuzzAlgorithm}, by number 3,is 0`;
+    return `The remainder of the division of number ${this.numberProcessedByFizzBuzzAlgorithm}, by number 3, is 0`;
   }
   get badgeSeverity(): string {
     return 'warning';
