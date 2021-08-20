@@ -1,36 +1,14 @@
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { interval, Subscription } from 'rxjs';
 import { take } from 'rxjs/operators';
+import { hideShow } from './animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [
-    trigger('hideFilterCard', [
-      state(
-        'hide',
-        style({
-          opacity: 0,
-        })
-      ),
-      state(
-        'show',
-        style({
-          opacity: 1,
-        })
-      ),
-      transition('* => *', animate(150)),
-    ]),
-  ],
+  animations: [hideShow],
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'FizzBuzz';
