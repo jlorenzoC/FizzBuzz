@@ -8,6 +8,7 @@ import { SkeletonFzbzCardComponent } from './components/skeleton-fzbz-card/skele
 import { SkeletonFzbzFilterCardComponent } from './components/skeleton-fzbz-filter-card/skeleton-fzbz-filter-card.component';
 import { FizzbuzzPipe } from './pipes/fizzbuzz/fizzbuzz.pipe';
 import { PrimengModule } from './primeng/primeng.module';
+import { InputSearchByNumberComponent } from './components/input-search-by-number/input-search-by-number.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { PrimengModule } from './primeng/primeng.module';
     ImageBadgeComponent,
     SkeletonFzbzCardComponent,
     SkeletonFzbzFilterCardComponent,
+    InputSearchByNumberComponent,
   ],
   imports: [BrowserModule, BrowserAnimationsModule, FormsModule, PrimengModule],
   bootstrap: [AppComponent],
