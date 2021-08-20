@@ -1,3 +1,12 @@
 .p-inputtext {
   width: 100%;
 }
+
+:host::ng-deep {
+  p-sidebar span.p-input-icon-right {
+    margin-top: 0 !important;
+  }
+  .fizzbuzz-filter-card .p-card-content {
+    padding-top: 0;
+  }
+}

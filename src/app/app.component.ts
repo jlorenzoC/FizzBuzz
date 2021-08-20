@@ -53,6 +53,13 @@ export class AppComponent implements OnInit, OnDestroy {
     else this.assignOriginalCollection();
   }
 
+  areThereAllTheNumbersToProcess(): boolean {
+    return (
+      this.numbersToProcessByFzBzPipe.length ===
+      this.AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM
+    );
+  }
+
   private assignOriginalCollection(): void {
     this.cardsFiltered = this.numbersToProcessByFzBzPipe;
   }

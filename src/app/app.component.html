@@ -9,33 +9,14 @@
     [style]="{ height: '7em' }"
   >
     <div class="w-full flex flex-column align-items-center">
-      <span
-        *ngIf="
-          numbersToProcessByFzBzPipe.length ===
-            AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM;
-          else skeletonOfFilterOnTopbar
-        "
-        class="p-input-icon-right w-8"
+      <app-input-search-by-number
+        [showContent]="areThereAllTheNumbersToProcess()"
+        class="w-8"
+        [id]="'fzbz-topbar-input-filter'"
+        (emitter)="filter($event)"
+        [(filterValue)]="filterValue"
       >
-        <i class="pi pi-search"></i>
-        <input
-          id="fzbz-topbar-input-filter"
-          #filterInputOnTopBar
-          (input)="filter(filterInputOnTopBar.value)"
-          [(ngModel)]="filterValue"
-          pInputText
-          placeholder="Search by number ..."
-          pKeyFilter="int"
-        />
-      </span>
-      <ng-template #skeletonOfFilterOnTopbar>
-        <p-skeleton
-          class="w-7"
-          styleClass="my-2"
-          height="3rem"
-          borderRadius="16px"
-        ></p-skeleton>
-      </ng-template>
+      </app-input-search-by-number>
     </div>
   </p-sidebar>
 </section>
@@ -43,43 +24,24 @@
 <section class="fzbz-filter flex align-items-center flex-column">
   <p-card
     [@hideFilterCard]="displayTopBar ? 'hide' : 'show'"
-    *ngIf="
-      numbersToProcessByFzBzPipe.length ===
-        AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM;
-      else skeletonFilterCard
-    "
     id="fizzbuzz-filter-card"
-    class="fizzbuzz-filter-card sm:m-4 mt-4 mb-3 w-11 sm:w-7"
+    class="fizzbuzz-filter-card sm:m-4 mt-4 w-11 sm:w-7"
     styleClass="shadow-8"
-    [header]="title"
-    subheader="Which number is Fizz, Buzz, or FizzBuzz?"
   >
-    <span class="p-input-icon-right w-full">
-      <i class="pi pi-search"></i>
-      <input
-        id="fzbz-input-filter"
-        #filterInput
-        (input)="filter(filterInput.value)"
-        [(ngModel)]="filterValue"
-        pInputText
-        placeholder="Search by number ..."
-        pKeyFilter="int"
-      />
-    </span>
+    <app-input-search-by-number
+      [showTitle]="true"
+      [showContent]="areThereAllTheNumbersToProcess()"
+      class="w-full"
+      [id]="'fzbz-input-filter'"
+      (emitter)="filter($event)"
+      [(filterValue)]="filterValue"
+    >
+    </app-input-search-by-number>
   </p-card>
-  <ng-template #skeletonFilterCard>
-    <app-skeleton-fzbz-filter-card></app-skeleton-fzbz-filter-card>
-  </ng-template>
 </section>
 
 <section class="fzbz-cards flex justify-content-center flex-wrap">
-  <ng-container
-    *ngIf="
-      numbersToProcessByFzBzPipe.length ==
-        AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM;
-      else skeletonCards
-    "
-  >
+  <ng-container *ngIf="areThereAllTheNumbersToProcess(); else skeletonCards">
     <p-card
       [attr.data-key]="numberToProccessByFzBzPipe"
       class="fizzbuzz-card"
