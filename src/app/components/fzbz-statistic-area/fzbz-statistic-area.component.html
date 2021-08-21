@@ -1,0 +1,35 @@
+<div class="flex" *ngIf="_filteredElements">
+  <i
+    *ngIf="true"
+    class="pi pi-filter cursor-pointer"
+    style="font-size: 2rem; margin-right: 20px; margin-left: 10px"
+    pTooltip="Total"
+    tooltipPosition="bottom"
+  >
+    <p-badge [value]="_filteredElements.filteredElements.toString()"></p-badge>
+  </i>
+
+  <p-badge
+    [value]="_filteredElements.fizzElements.toString()"
+    severity="warning"
+    styleClass="p-mr-2"
+    class="mx-1 cursor-pointer"
+    pTooltip="Fizz"
+    tooltipPosition="bottom"
+  ></p-badge>
+  <p-badge
+    [value]="_filteredElements.buzzElements.toString()"
+    severity="info"
+    styleClass="p-mr-2"
+    class="mx-1 cursor-pointer"
+    pTooltip="Buzz"
+    tooltipPosition="bottom"
+  ></p-badge>
+  <p-badge
+    [value]="_filteredElements.fizzbuzzElements.toString()"
+    severity="success"
+    class="mx-1 cursor-pointer"
+    pTooltip="FizzBuzz"
+    tooltipPosition="bottom"
+  ></p-badge>
+</div>

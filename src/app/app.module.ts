@@ -9,6 +9,7 @@ import { SkeletonFzbzFilterCardComponent } from './components/skeleton-fzbz-filt
 import { FizzbuzzPipe } from './pipes/fizzbuzz/fizzbuzz.pipe';
 import { PrimengModule } from './primeng/primeng.module';
 import { InputSearchByNumberComponent } from './components/input-search-by-number/input-search-by-number.component';
+import { FzbzStatisticAreaComponent } from './components/fzbz-statistic-area/fzbz-statistic-area.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { InputSearchByNumberComponent } from './components/input-search-by-numbe
     SkeletonFzbzCardComponent,
     SkeletonFzbzFilterCardComponent,
     InputSearchByNumberComponent,
+    FzbzStatisticAreaComponent,
   ],
   imports: [BrowserModule, BrowserAnimationsModule, FormsModule, PrimengModule],
   bootstrap: [AppComponent],
