@@ -29,6 +29,7 @@
 </div>
 <ng-template #skeleton>
   <app-skeleton-fzbz-filter-card
+    [filteredElements]="filteredElements"
     *ngIf="showTitle; else skeletonWithoutTitleSkeleton"
   ></app-skeleton-fzbz-filter-card>
   <ng-template #skeletonWithoutTitleSkeleton>
