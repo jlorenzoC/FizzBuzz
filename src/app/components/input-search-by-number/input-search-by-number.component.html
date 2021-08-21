@@ -1,0 +1,42 @@
+<div *ngIf="showContent; else skeleton">
+  <div class="flex flex-column">
+    <div *ngIf="showTitle" class="flex-row flex justify-content-between">
+      <div class="p-card-title">FizzBuzz</div>
+      <app-fzbz-statistic-area
+        [filteredElements]="filteredElements"
+      ></app-fzbz-statistic-area>
+    </div>
+    <div *ngIf="showTitle" class="p-card-subtitle">
+      Which number is Fizz, Buzz, or FizzBuzz?
+    </div>
+  </div>
+  <span class="p-input-icon-right w-full margin-top16">
+    <i class="pi pi-search"></i>
+    <input
+      [id]="id"
+      #input
+      (input)="value.emit(input.value)"
+      [ngModel]="filterValue"
+      (ngModelChange)="filterValueChange.emit($event)"
+      pInputText
+      placeholder="Search ..."
+      pKeyFilter="int"
+      class="w-full"
+      pTooltip="Enter a number"
+      tooltipPosition="bottom"
+    />
+  </span>
+</div>
+<ng-template #skeleton>
+  <app-skeleton-fzbz-filter-card
+    *ngIf="showTitle; else skeletonWithoutTitleSkeleton"
+  ></app-skeleton-fzbz-filter-card>
+  <ng-template #skeletonWithoutTitleSkeleton>
+    <p-skeleton
+      class="w-7"
+      styleClass="my-2"
+      height="3rem"
+      borderRadius="16px"
+    ></p-skeleton>
+  </ng-template>
+</ng-template>
