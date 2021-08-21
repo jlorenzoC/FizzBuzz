@@ -8,15 +8,25 @@
     [modal]="false"
     [style]="{ height: '7em' }"
   >
-    <div class="w-full flex flex-column align-items-center">
+    <div class="w-full flex flex-row justify-content-center">
+      <img
+        class="hidden sm:block"
+        src=".\assets\image\favicon.png"
+        alt="Logotipo FizzBuzz"
+      />
       <app-input-search-by-number
         [showContent]="areThereAllTheNumbersToProcess()"
         class="w-8"
         [id]="'fzbz-topbar-input-filter'"
-        (emitter)="filter($event)"
+        (value)="filter($event)"
         [(filterValue)]="filterValue"
       >
       </app-input-search-by-number>
+      <app-fzbz-statistic-area
+        style="padding: 13px 0"
+        class="align-self-center"
+        [filteredElements]="cardsFiltered"
+      ></app-fzbz-statistic-area>
     </div>
   </p-sidebar>
 </section>
@@ -29,11 +39,12 @@
     styleClass="shadow-8"
   >
     <app-input-search-by-number
+      [filteredElements]="cardsFiltered"
       [showTitle]="true"
       [showContent]="areThereAllTheNumbersToProcess()"
       class="w-full"
       [id]="'fzbz-input-filter'"
-      (emitter)="filter($event)"
+      (value)="filter($event)"
       [(filterValue)]="filterValue"
     >
     </app-input-search-by-number>
