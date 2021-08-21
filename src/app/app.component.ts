@@ -30,10 +30,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
     if (yPosition >= 100) {
       this.displayTopBar = true;
-      this.filterInTopbar?.focus();
     } else {
       this.displayTopBar = false;
-      this.filterOutOfTopbar?.focus();
     }
   }
 
