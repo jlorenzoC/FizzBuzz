@@ -36,7 +36,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   constructor(private primengConfig: PrimeNGConfig) {
-    this.subscription = interval(15)
+    this.subscription = interval(2)
       .pipe(take(this.AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM))
       .subscribe(this.setCollection);
   }

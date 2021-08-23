@@ -1,8 +1,11 @@
-i {
-  position: relative;
+.fzbz-btn-with-badge {
   p-badge {
-    position: absolute;
-    top: -25px;
-    left: 18px;
+    & {
+      top: -13px;
+      left: 35px;
+    }
+    &#fzbz-fizzbuzz-badge {
+      left: 50px;
+    }
   }
 }
