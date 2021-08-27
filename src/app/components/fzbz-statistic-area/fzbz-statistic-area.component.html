@@ -7,10 +7,12 @@
       pButton
       pRipple
       type="button"
-      label="All"
+      [icon]="checkStore.allIsChecked ? 'pi pi-check' : ''"
       class="p-button-rounded p-button-text p-button-plain p-button-sm"
       pTooltip="Total"
       tooltipPosition="bottom"
+      (click)="onClickAll()"
+      [disabled]="checkStore.allIsChecked"
     ></button>
     <p-badge
       class="cursor-pointer absolute"
@@ -22,10 +24,12 @@
       pButton
       pRipple
       type="button"
+      [icon]="checkStore.fizzIsChecked ? 'pi pi-check' : ''"
       label="Fizz"
       class="p-button-rounded p-button-text p-button-warning p-button-sm"
       pTooltip="Fizz"
       tooltipPosition="bottom"
+      (click)="onClickFizz()"
     ></button>
     <p-badge
       [value]="_filteredElements.fizzElements.toString()"
@@ -38,10 +42,12 @@
       pButton
       pRipple
       type="button"
+      [icon]="checkStore.buzzIsChecked ? 'pi pi-check' : ''"
       label="Buzz"
       class="p-button-rounded p-button-text p-button-info p-button-sm"
       pTooltip="Buzz"
       tooltipPosition="bottom"
+      (click)="onClickBuzz()"
     ></button>
     <p-badge
       [value]="_filteredElements.buzzElements.toString()"
@@ -54,10 +60,12 @@
       pButton
       pRipple
       type="button"
+      [icon]="checkStore.fizzBuzzIsChecked ? 'pi pi-check' : ''"
       label="FizzBuzz"
       class="p-button-rounded p-button-text p-button-success p-button-sm"
       pTooltip="FizzBuzz"
       tooltipPosition="bottom"
+      (click)="onClickFizzBuzz()"
     ></button>
     <p-badge
       id="fzbz-fizzbuzz-badge"
