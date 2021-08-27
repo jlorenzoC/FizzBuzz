@@ -39,7 +39,7 @@
     <span class="p-input-icon-right w-10 sm:w-12 mt-2">
       <i class="pi pi-search"></i>
       <input
-        pattern="\d*"
+        inputmode="numeric"
         [id]="id"
         #input
         (input)="correctIfStartsWithZeroAndEmit(input)"
