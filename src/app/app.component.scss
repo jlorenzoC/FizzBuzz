@@ -5,6 +5,16 @@ $hostDeep: ':host::ng-deep';
 }
 
 #{$hostDeep} {
+  p-speedDial {
+    .p-button {
+      background: #673ab79e !important;
+    }
+  }
+  p-scrolltop {
+    .p-scrolltop.p-link {
+      background: #4caf5094 !important;
+    }
+  }
   p-sidebar {
     img {
       height: 50px;
