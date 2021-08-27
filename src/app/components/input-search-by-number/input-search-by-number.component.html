@@ -20,7 +20,7 @@
       <input
         [id]="id"
         #input
-        (input)="value.emit(input.value)"
+        (input)="correctIfStartsWithZeroAndEmit(input)"
         [ngModel]="filterValue"
         (ngModelChange)="filterValueChange.emit($event)"
         pInputText

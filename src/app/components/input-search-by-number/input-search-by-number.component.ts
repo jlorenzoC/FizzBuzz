@@ -18,4 +18,8 @@ export class InputSearchByNumberComponent {
   @Input() filterValue!: number;
   @Output() filterValueChange = new EventEmitter<number>();
   @Input() filteredElements!: number[];
+  correctIfStartsWithZeroAndEmit(input: HTMLInputElement) {
+    if (input.value.indexOf('0') == 0) input.value = '';
+    this.value.emit(input);
+  }
 }
