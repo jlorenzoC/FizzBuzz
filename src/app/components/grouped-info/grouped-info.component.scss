@@ -1,0 +1,41 @@
+$borderRadius: 20px 20px 0 0;
+
+:host::ng-deep {
+  .p-card-header {
+    display: flex;
+    justify-content: center;
+    img {
+      max-height: 150px;
+      width: auto;
+      &.grouped-Buzz-image {
+        transform: scale(1.5);
+      }
+      &.grouped-FizzBuzz-image {
+        transform: scale(0.8);
+      }
+    }
+  }
+  .p-card-body {
+    height: 100%;
+  }
+
+  .p-card {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .grouped-Fizz-card .p-card-body {
+    background-color: #fbc02d;
+    border-radius: $borderRadius;
+  }
+  .grouped-Buzz-card .p-card-body {
+    background-color: #2196f3;
+    border-radius: $borderRadius;
+    color: white;
+  }
+  .grouped-FizzBuzz-card .p-card-body {
+    background-color: #689f38;
+    border-radius: $borderRadius;
+    color: white;
+  }
+}

@@ -82,7 +82,25 @@
   </p-card>
 </section>
 
-<section class="fzbz-cards flex justify-content-center flex-wrap">
+<section
+  class="
+    flex
+    justify-content-center
+    align-content-center align-items-stretch
+    flex-wrap flex-row
+  "
+  *ngIf="isGroupedCardViewActivated"
+>
+  <ng-container *ngIf="groupedAndFilteredInfo">
+    <app-grouped-info
+      [group]="group"
+      style="width: 320px"
+      class="p-2 flex flex-shrink-0"
+      *ngFor="let group of groupedCards"
+      [filterCriteria]="filterValue"
+    ></app-grouped-info>
+  </ng-container>
+</section>
   <ng-container *ngIf="areThereAllTheNumbersToProcess(); else skeletonCards">
     <p-card
       [attr.data-key]="numberToProccessByFzBzPipe"
