@@ -1,12 +1,12 @@
-import { ImageBadge } from './ImageBadge';
+import { FizzBuzzBaseModel } from './FizzBuzzBaseModel';
 
-export class BuzzImageBadge extends ImageBadge {
+export class Buzz extends FizzBuzzBaseModel {
   constructor(
     public fizzbuzzType: string,
     public numberProcessedByFizzBuzzAlgorithm: number,
     public imageNameAndFormat = 'buzz.png'
   ) {
-    super(fizzbuzzType, numberProcessedByFizzBuzzAlgorithm, imageNameAndFormat);
+    super(fizzbuzzType, imageNameAndFormat);
   }
   get imageAlternative(): string {
     return 'Buzz Lightyear';
