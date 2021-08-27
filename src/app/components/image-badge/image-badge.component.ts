@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ModelFactory } from 'src/app/models/ModelFactory';
+import { FizzBuzzBaseModel } from '../../models/FizzBuzzBaseModel';
 
 @Component({
   selector: 'app-image-badge',
@@ -42,6 +43,7 @@ import { ModelFactory } from 'src/app/models/ModelFactory';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImageBadgeComponent {
+  imageBadge!: FizzBuzzBaseModel;
   imageBadgeFactory = new ModelFactory();
   @Input() set fizzbuzzType(input: { type: string; number: number }) {
     this.imageBadge = this.imageBadgeFactory.getModel(input.type, input.number);

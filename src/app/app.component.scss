@@ -29,9 +29,14 @@ $hostDeep: ':host::ng-deep';
       padding: 5px !important;
     }
   }
-  #fizzbuzz-filter-card .p-card-content {
-    padding-top: 0;
-    padding-bottom: 0;
+  #fizzbuzz-filter-card {
+    .p-card-body {
+      padding: 0.75rem 0.384rem 0.3rem 0.384rem;
+    }
+    .p-card-content {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   }
 }
 .card-title2 {
@@ -41,10 +46,15 @@ $hostDeep: ':host::ng-deep';
 
 @media (min-device-width: 576px) {
   #{$hostDeep} #fizzbuzz-filter-card {
+    .p-card-body {
+      padding: 1rem 1rem 0 1rem !important;
+    }
     .p-card-content {
-      padding-bottom: 16px;
+      padding-top: 5px;
+      padding-bottom: 5px;
     }
   }
+
   .p-sidebar-content {
     padding: 14px !important;
   }

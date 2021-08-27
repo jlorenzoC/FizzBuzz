@@ -1,6 +1,14 @@
 <div *ngIf="showContent; else skeleton">
-  <div class="flex flex-row flex-wrap">
-    <div class="p-card-title flex-auto text-yellow-500 font-italic">
+  <div class="flex flex-wrap justify-content-center sm:justify-content-between">
+    <div
+      class="
+        p-card-title
+        flex
+        justify-content-center
+        text-yellow-500
+        font-italic
+      "
+    >
       FizzBuzz
       <i
         (click)="op.toggle($event)"
@@ -9,15 +17,28 @@
       ></i>
     </div>
     <app-fzbz-statistic-area
-      class="flex-auto flex-order-1 sm:mt-0 mt-5 sm:flex-order-0"
+      class="flex-order-1 sm:mt-0 mt-3 sm:flex-order-0"
       [filteredElements]="filteredElements"
+      (checkedStatus)="onClickTagFilter.emit($event)"
+      [checkStore]="checkStore"
     ></app-fzbz-statistic-area>
-    <div class="p-card-subtitle w-full sm:text-sm text-xs">
+    <div
+      class="
+        p-card-subtitle
+        w-full
+        flex
+        justify-content-center
+        sm:justify-content-start
+        lg:text-sm
+        text-xs
+      "
+    >
       Which number is Fizz, Buzz, or FizzBuzz?
     </div>
-    <span class="p-input-icon-right w-full mt-3">
+    <span class="p-input-icon-right w-10 sm:w-12 mt-2">
       <i class="pi pi-search"></i>
       <input
+        pattern="\d*"
         [id]="id"
         #input
         (input)="correctIfStartsWithZeroAndEmit(input)"
@@ -34,25 +55,39 @@
   </div>
 </div>
 <ng-template #skeleton>
-  <div class="flex flex-row flex-wrap">
-    <p-skeleton
-      id="title-skeleton"
-      height="2rem"
-      width="7rem"
-      styleClass="my-2"
-      borderRadius="16px"
-    ></p-skeleton>
+  <div class="flex justify-content-center flex-wrap">
+    <div
+      class="
+        p-card-title
+        w-full
+        sm:w-4
+        flex
+        justify-content-center
+        sm:justify-content-start
+      "
+    >
+      <p-skeleton
+        id="title-skeleton"
+        height="1.2rem"
+        styleClass="my-1"
+        borderRadius="16px"
+        class="w-5"
+      ></p-skeleton>
+    </div>
     <app-fzbz-statistic-area
-      class="flex-auto flex-order-1 sm:mt-0 mt-5 sm:flex-order-0"
+      class="flex-auto flex-order-1 sm:mt-0 mt-3 sm:flex-order-0"
       [filteredElements]="filteredElements"
+      [checkStore]="checkStore"
     ></app-fzbz-statistic-area>
-    <div class="w-full mb-2">
-      <p-skeleton width="40%" borderRadius="16px"></p-skeleton>
+    <div
+      class="w-full mb-2 flex justify-content-center sm:justify-content-start"
+    >
+      <p-skeleton class="w-7" borderRadius="16px"></p-skeleton>
     </div>
     <p-skeleton
-      class="w-full"
-      styleClass="mt-2"
-      height="2.9rem"
+      class="w-10 sm:w-12"
+      styleClass="mt-1"
+      height="2.8rem"
       borderRadius="16px"
     ></p-skeleton>
   </div>

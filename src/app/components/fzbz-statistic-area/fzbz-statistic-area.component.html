@@ -1,5 +1,11 @@
 <div
-  class="flex flex-wrap sm:justify-content-end justify-content-center"
+  class="
+    flex flex-wrap
+    sm:justify-content-end
+    justify-content-center
+    mt-2
+    md:mt-1
+  "
   *ngIf="_filteredElements"
 >
   <div class="fzbz-btn-with-badge relative">
@@ -8,8 +14,12 @@
       pRipple
       type="button"
       [icon]="checkStore.allIsChecked ? 'pi pi-check' : ''"
+      label="Total"
       class="p-button-rounded p-button-text p-button-plain p-button-sm"
-      pTooltip="Total"
+      [pTooltip]="
+        'Total of numbers processed, from 1 to ' +
+        _filteredElements.filteredElements
+      "
       tooltipPosition="bottom"
       (click)="onClickAll()"
       [disabled]="checkStore.allIsChecked"
@@ -27,7 +37,7 @@
       [icon]="checkStore.fizzIsChecked ? 'pi pi-check' : ''"
       label="Fizz"
       class="p-button-rounded p-button-text p-button-warning p-button-sm"
-      pTooltip="Fizz"
+      pTooltip="Fizz numbers"
       tooltipPosition="bottom"
       (click)="onClickFizz()"
     ></button>
@@ -45,7 +55,7 @@
       [icon]="checkStore.buzzIsChecked ? 'pi pi-check' : ''"
       label="Buzz"
       class="p-button-rounded p-button-text p-button-info p-button-sm"
-      pTooltip="Buzz"
+      pTooltip="Buzz numbers"
       tooltipPosition="bottom"
       (click)="onClickBuzz()"
     ></button>
@@ -63,7 +73,7 @@
       [icon]="checkStore.fizzBuzzIsChecked ? 'pi pi-check' : ''"
       label="FizzBuzz"
       class="p-button-rounded p-button-text p-button-success p-button-sm"
-      pTooltip="FizzBuzz"
+      pTooltip="FizzBuzz numbers"
       tooltipPosition="bottom"
       (click)="onClickFizzBuzz()"
     ></button>

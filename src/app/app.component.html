@@ -12,7 +12,7 @@
     position="top"
     [(visible)]="displayTopBar"
     [modal]="false"
-    class="flex-grow-1 flex flex-wrap h-auto"
+    class="flex-grow-1 flex flex-wrap h-auto z-5"
   >
     <div
       class="
@@ -36,7 +36,7 @@
         <input
           id="fzbz-topbar-input-filter"
           #input
-          (input)="filter(input.value)"
+          (input)="onInputfilter(input)"
           [(ngModel)]="filterValue"
           pInputText
           placeholder="Search ..."
@@ -50,33 +50,37 @@
         <div class="w-8 md:w-5">
           <p-skeleton
             class="w-full"
-            height="2.9rem"
+            height="2.5rem"
             borderRadius="16px"
           ></p-skeleton>
         </div>
       </ng-template>
       <app-fzbz-statistic-area
-        class="sm:pl-5 mt-4 md:mt-0 w-full sm:w-auto"
-        [filteredElements]="cardsFiltered"
+        class="sm:pl-1 mt-3 md:mt-0 w-full sm:w-auto"
+        [filteredElements]="numbersToProcessByFzBzPipe.slice()"
+        [checkStore]="checkStore"
+        (checkedStatus)="groupFilteredInfo($event)"
       ></app-fzbz-statistic-area>
     </div>
   </p-sidebar>
 </section>
 
-<section class="fzbz-filter flex justify-content-center">
+<section class="fzbz-filter flex justify-content-center mb-3 md:mb-0">
   <p-card
     [@hideFilterCard]="displayTopBar ? 'hide' : 'show'"
     id="fizzbuzz-filter-card"
-    class="md:mt-4 md:mb-3 md:w-8 w-full z-5"
+    class="md:mt-4 md:mb-3 md:w-7 w-full z-5"
     styleClass="shadow-8"
   >
     <app-input-search-by-number
-      [filteredElements]="cardsFiltered"
+      [filteredElements]="numbersToProcessByFzBzPipe.slice()"
       [showContent]="areThereAllTheNumbersToProcess()"
       class="w-full"
       [id]="'fzbz-input-filter'"
-      (value)="filter($event)"
+      (value)="onInputfilter($event)"
       [(filterValue)]="filterValue"
+      (onClickTagFilter)="groupFilteredInfo($event)"
+      [checkStore]="checkStore"
     >
     </app-input-search-by-number>
     <div
@@ -138,29 +142,34 @@
     ></app-grouped-info>
   </ng-container>
 </section>
+
+<section
+  *ngIf="isIndividualCardViewActivated"
+  class="fzbz-cards flex justify-content-center flex-wrap"
+>
   <ng-container *ngIf="areThereAllTheNumbersToProcess(); else skeletonCards">
     <p-card
-      [attr.data-key]="numberToProccessByFzBzPipe"
+      [attr.data-key]="numberToProcessByFzBzPipe"
       class="fizzbuzz-card"
-      *ngFor="let numberToProccessByFzBzPipe of cardsFiltered"
+      *ngFor="let numberToProcessByFzBzPipe of cardsFiltered"
       styleClass="h-8rem m-3 shadow-8 text-900"
       [style]="{
         width: '300px',
         position: 'relative',
-        opacity: (numberToProccessByFzBzPipe | fizzbuzz) == '' ? '0.9' : '1',
+        opacity: (numberToProcessByFzBzPipe | fizzbuzz) == '' ? '0.9' : '1',
         backgroundColor:
-          (numberToProccessByFzBzPipe | fizzbuzz) == '' ? '#dddddd' : 'none'
+          (numberToProcessByFzBzPipe | fizzbuzz) == '' ? '#dddddd' : 'none'
       }"
     >
       <ng-template pTemplate="header">
         <span class="p-card-title absolute card-title2">
-          {{ numberToProccessByFzBzPipe.toString() }}
+          {{ numberToProcessByFzBzPipe.toString() }}
         </span>
       </ng-template>
       <app-image-badge
         [fizzbuzzType]="{
-          type: (numberToProccessByFzBzPipe | fizzbuzz: false).toString(),
-          number: numberToProccessByFzBzPipe
+          type: (numberToProcessByFzBzPipe | fizzbuzz: false).toString(),
+          number: numberToProcessByFzBzPipe
         }"
       ></app-image-badge>
     </p-card>
@@ -168,7 +177,7 @@
   <ng-template #skeletonCards>
     <app-skeleton-fzbz-cards
       class="fadein"
-      *ngFor="let numberToProccessByFzBzPipe of cardsFiltered"
+      *ngFor="let numberToProcessByFzBzPipe of cardsFiltered"
     ></app-skeleton-fzbz-cards>
   </ng-template>
 </section>
