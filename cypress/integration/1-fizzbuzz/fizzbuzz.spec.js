@@ -5,7 +5,7 @@ describe('FizzBuzz tests', () => {
     cy.visit('/');
   });
   it('Should exist div with text FizzBuzz', () => {
-    cy.get('div.p-card-title', { timeout: 10000 })
+    cy.get('div[id="isbn-card-title"]', { timeout: 10000 })
       .contains('FizzBuzz')
       .should('exist');
   });
