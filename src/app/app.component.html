@@ -79,6 +79,43 @@
       [(filterValue)]="filterValue"
     >
     </app-input-search-by-number>
+    <div
+      class="
+        sm:flex
+        w-full
+        hidden
+        justify-content-center
+        sm:justify-content-end
+        pt-2
+      "
+    >
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-id-card"
+        class="p-button-rounded p-button-sm p-button-text p-button-plain"
+        (click)="toggleViews('groupedCardView')"
+        [ngStyle]="{
+          backgroundColor: isGroupedCardViewActivated ? '#efe8ff' : 'white'
+        }"
+        pTooltip="Grouped card view"
+        tooltipPosition="bottom"
+      ></button>
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-table"
+        class="p-button-rounded p-button-sm p-button-text p-button-plain"
+        (click)="toggleViews()"
+        [ngStyle]="{
+          backgroundColor: isIndividualCardViewActivated ? '#efe8ff' : 'white'
+        }"
+        pTooltip="Individual card view"
+        tooltipPosition="bottom"
+      ></button>
+    </div>
   </p-card>
 </section>
 

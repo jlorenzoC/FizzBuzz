@@ -16,6 +16,8 @@ export class AppComponent implements OnInit, OnDestroy {
   displayTopBar = false;
   subscription: Subscription;
   cardsFiltered: number[] = [];
+  isGroupedCardViewActivated = false;
+  isIndividualCardViewActivated = true;
   numbersToProcessByFzBzPipe: number[] = [];
   readonly AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM = 100;
   filterValue!: number;
@@ -69,6 +71,16 @@ export class AppComponent implements OnInit, OnDestroy {
     );
   }
 
+  toggleViews(view?: string) {
+    if (view === 'groupedCardView') {
+      this.isGroupedCardViewActivated = true;
+      this.isIndividualCardViewActivated = false;
+    } else {
+      this.isGroupedCardViewActivated = false;
+      this.isIndividualCardViewActivated = true;
+    }
+    this.groupFilteredInfo(this.checkStore);
+  }
   private assignOriginalCollection(): void {
     this.cardsFiltered = this.numbersToProcessByFzBzPipe;
   }
