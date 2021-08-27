@@ -25,15 +25,15 @@ import { ImageBadge } from './../../models/ImageBadge';
     `
       .Buzz {
         height: 150px;
-        transform: translate(80px, -45px);
+        transform: translate(80px, -35px);
       }
       .Fizz {
         height: 100px;
-        transform: translate(80px, -18px);
+        transform: translate(80px, -10px);
       }
       .FizzBuzz {
         height: 60px;
-        transform: translate(55px, 0);
+        transform: translate(55px, 10px);
       }
       .margin-top {
         position: absolute;
