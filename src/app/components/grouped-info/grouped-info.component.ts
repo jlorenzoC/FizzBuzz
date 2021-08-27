@@ -35,7 +35,7 @@ export class GroupedInfoComponent {
 
   replaceWhitespaces(): string {
     const regexAllWhiteSpaces: RegExp = / /g;
-    return this.imageBadge.fizzbuzzType
+    return this.imageBadge?.fizzbuzzType
       .toString()
       .replace(regexAllWhiteSpaces, '-');
   }

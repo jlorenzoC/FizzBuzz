@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GroupedInfoComponent } from './grouped-info.component';
 
-describe('FilteredInfoComponent', () => {
+describe('GroupedInfoComponent', () => {
   let component: GroupedInfoComponent;
   let fixture: ComponentFixture<GroupedInfoComponent>;
 
