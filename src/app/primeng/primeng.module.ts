@@ -8,6 +8,7 @@ import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { SidebarModule } from 'primeng/sidebar';
 import { SkeletonModule } from 'primeng/skeleton';
+import { SpeedDialModule } from 'primeng/speeddial';
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { TooltipModule } from 'primeng/tooltip';
@@ -25,6 +26,7 @@ import { TooltipModule } from 'primeng/tooltip';
     SkeletonModule,
     SidebarModule,
     ButtonModule,
+    SpeedDialModule,
     OverlayPanelModule,
   ],
 })

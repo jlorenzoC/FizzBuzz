@@ -1,5 +1,5 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
-import { PrimeNGConfig } from 'primeng/api';
+import { MenuItem, PrimeNGConfig } from 'primeng/api';
 import { interval, Subscription } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { hideShow } from './animations';
@@ -12,6 +12,7 @@ import { hideShow } from './animations';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'FizzBuzz';
+  items!: MenuItem[];
   displayTopBar = false;
   subscription: Subscription;
   cardsFiltered: number[] = [];
@@ -43,6 +44,16 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.primengConfig.ripple = true;
+    this.items = [
+      {
+        icon: 'pi pi-id-card',
+        command: () => this.toggleViews('groupedCardView'),
+      },
+      {
+        icon: 'pi pi-table',
+        command: () => this.toggleViews(),
+      },
+    ];
   }
 
   filter(value: string): void {
