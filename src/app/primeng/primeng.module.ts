@@ -4,6 +4,7 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { KeyFilterModule } from 'primeng/keyfilter';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { SidebarModule } from 'primeng/sidebar';
 import { SkeletonModule } from 'primeng/skeleton';
@@ -24,6 +25,7 @@ import { TooltipModule } from 'primeng/tooltip';
     SkeletonModule,
     SidebarModule,
     ButtonModule,
+    OverlayPanelModule,
   ],
 })
 export class PrimengModule {}

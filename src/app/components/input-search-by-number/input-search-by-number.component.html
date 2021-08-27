@@ -2,6 +2,11 @@
   <div class="flex flex-row flex-wrap">
     <div class="p-card-title flex-auto text-yellow-500 font-italic">
       FizzBuzz
+      <i
+        (click)="op.toggle($event)"
+        class="pi pi-info-circle ml-2 text-gray-500"
+        style="cursor: help"
+      ></i>
     </div>
     <app-fzbz-statistic-area
       class="flex-auto flex-order-1 sm:mt-0 mt-5 sm:flex-order-0"
@@ -52,3 +57,19 @@
     ></p-skeleton>
   </div>
 </ng-template>
+
+<p-overlayPanel
+  #op
+  [style]="{ maxWidth: '350px' }"
+  [showCloseIcon]="true"
+  [dismissable]="true"
+>
+  <ng-template pTemplate>
+    <p class="font-italic text-justify line-height-2 text-gray-600">
+      <b>FizzBuzz</b> is an algorithm which prints the numbers from 1 to 100. It
+      will print the word "Fizz", whenever 3 and its multiples are encountered,
+      "Buzz" whenever 5 and its multiples are encountered, and "FizzBuzz",
+      whenever numbers that are multiples of both 3 and 5, are encountered.
+    </p>
+  </ng-template>
+</p-overlayPanel>
