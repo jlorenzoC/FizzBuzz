@@ -10,6 +10,8 @@ import { InputSearchByNumberComponent } from './components/input-search-by-numbe
 import { SkeletonFzbzCardComponent } from './components/skeleton-fzbz-card/skeleton-fzbz-card.component';
 import { FizzbuzzPipe } from './pipes/fizzbuzz/fizzbuzz.pipe';
 import { PrimengModule } from './primeng/primeng.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,16 @@ import { PrimengModule } from './primeng/primeng.module';
     FzbzStatisticAreaComponent,
     GroupedInfoComponent,
   ],
-  imports: [BrowserModule, BrowserAnimationsModule, FormsModule, PrimengModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    PrimengModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
