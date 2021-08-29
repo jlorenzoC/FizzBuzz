@@ -5,6 +5,7 @@ import { take } from 'rxjs/operators';
 import { hideShow } from './animations';
 import { CheckStore } from './models/CheckStore';
 import { GroupedElements } from './models/GroupedElements';
+import { HandleUnrecoverableStateService } from './services/handle-unrecoverable-state.service';
 
 @Component({
   selector: 'app-root',
@@ -39,7 +40,10 @@ export class AppComponent implements OnInit, OnDestroy {
     else this.displayTopBar = false;
   }
 
-  constructor(private primengConfig: PrimeNGConfig) {
+  constructor(
+    private primengConfig: PrimeNGConfig,
+    private handleUnrecoverableStateService: HandleUnrecoverableStateService
+  ) {
     this.subscription = interval(2)
       .pipe(take(this.AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM))
       .subscribe(this.setCollection);
