@@ -30,6 +30,8 @@ export class AppComponent implements OnInit, OnDestroy {
   filteredElements?: FilteredElements;
   numbersToProcessByFzBzPipe: number[] = [];
   readonly AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM = 100;
+  readonly GROUP_VIEW = 'grouped';
+  readonly INDIVIDUAL_VIEW = 'individual';
 
   @HostListener('window:scroll', ['$event.target']) onScroll(
     document: Document
@@ -56,11 +58,11 @@ export class AppComponent implements OnInit, OnDestroy {
     this.items = [
       {
         icon: 'pi pi-id-card',
-        command: () => this.toggleView('groupedCardView'),
+        command: () => this.toggleView(this.GROUP_VIEW),
       },
       {
         icon: 'pi pi-table',
-        command: () => this.toggleView(),
+        command: () => this.toggleView(this.INDIVIDUAL_VIEW),
       },
     ];
   }
@@ -90,8 +92,8 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   toggleView(view?: string) {
-    this.isGroupedCardViewActivated = view === 'grouped';
-    this.isIndividualCardViewActivated = view === 'individual';
+    this.isGroupedCardViewActivated = view === this.GROUP_VIEW;
+    this.isIndividualCardViewActivated = view === this.INDIVIDUAL_VIEW;
     this.filter();
   }
 
