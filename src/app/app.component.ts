@@ -25,8 +25,6 @@ export class AppComponent implements OnInit, OnDestroy {
   isGroupedCardViewActivated = false;
   isIndividualCardViewActivated = true;
   groupedCards?: [string, number[]][];
-  innerTopbarFilter?: HTMLElement | null;
-  outOfTopbarFilter?: HTMLElement | null;
   filteredElements?: FilteredElements;
   numbersToProcessByFzBzPipe: number[] = [];
   readonly AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM = 100;
@@ -36,12 +34,8 @@ export class AppComponent implements OnInit, OnDestroy {
   @HostListener('window:scroll', ['$event.target']) onScroll(
     document: Document
   ): void {
-    this.innerTopbarFilter = document.getElementById(
-      'fzbz-topbar-input-filter'
-    );
-    this.outOfTopbarFilter = document.getElementById('fzbz-input-filter');
-    const yPosition = document.documentElement.scrollTop;
-    if (yPosition >= 100) this.displayTopBar = true;
+    const yScrollPosition = document.documentElement.scrollTop;
+    if (yScrollPosition >= 100) this.displayTopBar = true;
     else this.displayTopBar = false;
   }
 
