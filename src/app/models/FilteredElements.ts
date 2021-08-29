@@ -1,6 +1,6 @@
 import { CheckStore } from './CheckStore';
 
-export class GroupedElements {
+export class FilteredElements {
   constructor(
     private _filteredElements: number[] = [],
     private checkStore: CheckStore = new CheckStore()
@@ -10,28 +10,30 @@ export class GroupedElements {
     return this.checkStore.allIsChecked ? this._filteredElements : [];
   }
 
-  get fizzElements(): number[] {
-    return this.checkStore.fizzIsChecked ? this.filterFizz() : [];
-  }
-
   get buzzElements(): number[] {
     return this.checkStore.buzzIsChecked ? this.filterBuzz() : [];
   }
 
-  get fizzbuzzElements(): number[] {
-    return this.checkStore.fizzBuzzIsChecked ? this.filterFizzBuzz() : [];
-  }
-
-  get none(): number[] {
-    return this.checkStore.allIsChecked ? this.filterNonFizzBuzzTyped() : [];
-  }
-
-  get concatAll(): number[] {
+  get concatAllByCheckStoreStatus(): number[] {
     return this.allElements.concat(
       this.fizzElements,
       this.buzzElements,
       this.fizzbuzzElements
     );
+  }
+
+  concatAllByCriteria(criteria: string): number[] {
+    return this.concatAllByCheckStoreStatus.filter((e: number) =>
+      e.toString().includes(criteria.trim())
+    );
+  }
+
+  get fizzElements(): number[] {
+    return this.checkStore.fizzIsChecked ? this.filterFizz() : [];
+  }
+
+  get fizzbuzzElements(): number[] {
+    return this.checkStore.fizzBuzzIsChecked ? this.filterFizzBuzz() : [];
   }
 
   get groupedElements(): Array<[string, number[]]> {
@@ -48,24 +50,23 @@ export class GroupedElements {
     return [...groupedElements];
   }
 
-  private get getGroupedMap(): Map<string, number[]> {
-    let groupedElements: Map<string, number[]> = new Map();
-    groupedElements.set('Fizz', this.filterFizz());
-    groupedElements.set('Buzz', this.filterBuzz());
-    groupedElements.set('FizzBuzz', this.filterFizzBuzz());
-    groupedElements.set('They are not', this.filterNonFizzBuzzTyped());
-    return groupedElements;
+  get none(): number[] {
+    return this.checkStore.allIsChecked ? this.filterNonFizzBuzzTyped() : [];
   }
 
-  private filterFizz(): number[] {
-    return this._filteredElements?.filter(
-      (e) => e % 3 === 0 && !this.filterFizzBuzz().includes(e)
-    );
+  private concatAllTypedElementsToDoGrouping() {
+    return this.filterFizz().concat(this.filterBuzz(), this.filterFizzBuzz());
   }
 
   private filterBuzz(): number[] {
     return this._filteredElements?.filter(
       (e) => e % 5 === 0 && !this.filterFizzBuzz().includes(e)
+    );
+  }
+
+  private filterFizz(): number[] {
+    return this._filteredElements?.filter(
+      (e) => e % 3 === 0 && !this.filterFizzBuzz().includes(e)
     );
   }
 
@@ -79,8 +80,13 @@ export class GroupedElements {
     );
   }
 
-  private concatAllTypedElementsToDoGrouping() {
-    return this.filterFizz().concat(this.filterBuzz(), this.filterFizzBuzz());
+  private get getGroupedMap(): Map<string, number[]> {
+    let groupedElements: Map<string, number[]> = new Map();
+    groupedElements.set('Fizz', this.filterFizz());
+    groupedElements.set('Buzz', this.filterBuzz());
+    groupedElements.set('FizzBuzz', this.filterFizzBuzz());
+    groupedElements.set('They are not', this.filterNonFizzBuzzTyped());
+    return groupedElements;
   }
 
   private isInTheFizzBuzzElementsArrays(e: number): boolean {

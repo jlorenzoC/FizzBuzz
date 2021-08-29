@@ -29,7 +29,7 @@
         alt="Logotipo FizzBuzz"
       />
       <span
-        *ngIf="areThereAllTheNumbersToProcess(); else skeleton"
+        *ngIf="areAllTheNumbersProcessed(); else skeleton"
         class="p-input-icon-right w-8 md:w-5"
       >
         <i class="pi pi-search"></i>
@@ -37,7 +37,7 @@
           inputmode="numeric"
           id="fzbz-topbar-input-filter"
           #input
-          (input)="onInputfilter(input)"
+          (input)="onInput(input)"
           [(ngModel)]="filterValue"
           pInputText
           placeholder="Type a number"
@@ -58,7 +58,7 @@
         class="sm:pl-1 mt-3 md:mt-0 w-full sm:w-auto"
         [filteredElements]="numbersToProcessByFzBzPipe.slice()"
         [checkStore]="checkStore"
-        (checkedStatus)="groupFilteredInfo($event)"
+        (checkedStatus)="filter($event)"
       ></app-fzbz-statistic-area>
     </div>
   </p-sidebar>
@@ -73,12 +73,12 @@
   >
     <app-input-search-by-number
       [filteredElements]="numbersToProcessByFzBzPipe.slice()"
-      [showContent]="areThereAllTheNumbersToProcess()"
+      [showContent]="areAllTheNumbersProcessed()"
       class="w-full"
-      [id]="'fzbz-input-filter'"
-      (value)="onInputfilter($event)"
+      id="fzbz-input-filter"
+      (value)="onInput($event)"
       [(filterValue)]="filterValue"
-      (onClickTagFilter)="groupFilteredInfo($event)"
+      (onClickTagFilter)="filter($event)"
       [checkStore]="checkStore"
     >
     </app-input-search-by-number>
@@ -98,10 +98,8 @@
         type="button"
         icon="pi pi-id-card"
         class="p-button-rounded p-button-sm p-button-text p-button-plain"
-        (click)="toggleViews('groupedCardView')"
-        [ngStyle]="{
-          backgroundColor: isGroupedCardViewActivated ? '#efe8ff' : 'white'
-        }"
+        (click)="toggleView('grouped')"
+        [ngClass]="{ 'btn-view-active': isGroupedCardViewActivated }"
         pTooltip="Grouped card view"
         tooltipPosition="bottom"
       ></button>
@@ -111,10 +109,8 @@
         type="button"
         icon="pi pi-table"
         class="p-button-rounded p-button-sm p-button-text p-button-plain"
-        (click)="toggleViews()"
-        [ngStyle]="{
-          backgroundColor: isIndividualCardViewActivated ? '#efe8ff' : 'white'
-        }"
+        (click)="toggleView('individual')"
+        [ngClass]="{ 'btn-view-active': isIndividualCardViewActivated }"
         pTooltip="Individual card view"
         tooltipPosition="bottom"
       ></button>
@@ -131,7 +127,7 @@
   "
   *ngIf="isGroupedCardViewActivated"
 >
-  <ng-container *ngIf="groupedAndFilteredInfo">
+  <ng-container *ngIf="groupedCards">
     <app-grouped-info
       [group]="group"
       style="width: 320px"
@@ -146,7 +142,7 @@
   *ngIf="isIndividualCardViewActivated"
   class="fzbz-cards flex justify-content-center flex-wrap"
 >
-  <ng-container *ngIf="areThereAllTheNumbersToProcess(); else skeletonCards">
+  <ng-container *ngIf="areAllTheNumbersProcessed(); else skeletonCards">
     <p-card
       [attr.data-key]="numberToProcessByFzBzPipe"
       class="fizzbuzz-card"
@@ -176,12 +172,12 @@
   <ng-template #skeletonCards>
     <app-skeleton-fzbz-cards
       class="fadein"
-      *ngFor="let numberToProcessByFzBzPipe of cardsFiltered"
+      *ngFor="let numberToProcessByFzBzPipe of mockCards"
     ></app-skeleton-fzbz-cards>
   </ng-template>
 </section>
 
-<p-scrollTop></p-scrollTop>
+<p-scrollTop class="z-2"></p-scrollTop>
 
 <p-speedDial
   [model]="items"
@@ -196,3 +192,5 @@
 <div class="flex justify-content-center">
   <p-messages class="fixed mx-1 sm:mx-0 bottom-0 z-5"></p-messages>
 </div>
+
+<router-outlet></router-outlet>

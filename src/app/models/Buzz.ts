@@ -2,8 +2,8 @@ import { FizzBuzzBaseModel } from './FizzBuzzBaseModel';
 
 export class Buzz extends FizzBuzzBaseModel {
   constructor(
-    public fizzbuzzType: string,
     public numberProcessedByFizzBuzzAlgorithm: number,
+    public fizzbuzzType: string = 'Buzz',
     public imageNameAndFormat = 'buzz.png'
   ) {
     super(fizzbuzzType, imageNameAndFormat);

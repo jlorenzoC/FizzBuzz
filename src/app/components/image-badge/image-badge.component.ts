@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ModelFactory } from 'src/app/models/ModelFactory';
+import { replaceWhiteSpacesForHyphon } from 'src/app/util/replace-withe-space-for-hyphon.function';
 import { FizzBuzzBaseModel } from '../../models/FizzBuzzBaseModel';
 
 @Component({
@@ -9,7 +10,7 @@ import { FizzBuzzBaseModel } from '../../models/FizzBuzzBaseModel';
       <img
         [src]="imageBadge.getImagePath()"
         [alt]="imageBadge.imageAlternative"
-        [class]="imageBadge.fizzbuzzType"
+        [class]="styleClass"
       />
       <p-badge
         [value]="imageBadge.fizzbuzzType.toString()"
@@ -33,6 +34,10 @@ import { FizzBuzzBaseModel } from '../../models/FizzBuzzBaseModel';
         height: 60px;
         transform: translate(55px, 10px);
       }
+      .I-am-not {
+        height: 60px;
+        transform: translate(100px, 10px);
+      }
       .margin-top {
         position: absolute;
         bottom: 10px;
@@ -43,9 +48,13 @@ import { FizzBuzzBaseModel } from '../../models/FizzBuzzBaseModel';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImageBadgeComponent {
-  imageBadge!: FizzBuzzBaseModel;
+  imageBadge?: FizzBuzzBaseModel;
   imageBadgeFactory = new ModelFactory();
+  styleClass?: string;
   @Input() set fizzbuzzType(input: { type: string; number: number }) {
     this.imageBadge = this.imageBadgeFactory.getModel(input.type, input.number);
+    this.styleClass = replaceWhiteSpacesForHyphon(
+      this.imageBadge.fizzbuzzType.toString()
+    );
   }
 }

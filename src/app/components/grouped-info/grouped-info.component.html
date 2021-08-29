@@ -1,13 +1,13 @@
 <p-card
   [class]="
     'align-self-stretch relative grouped-' +
-    replaceWhitespaces() +
+    styleClass +
     '-card  shadow-8 w-full'
   "
 >
   <ng-template pTemplate="header">
     <img
-      [class]="'p-3' + ' grouped-' + replaceWhitespaces() + '-image'"
+      [class]="'p-3' + ' grouped-' + styleClass + '-image'"
       [alt]="imageBadge?.imageAlternative"
       [src]="imageBadge?.getImagePath()"
     />

@@ -9,19 +9,18 @@ export class ModelFactory {
     numberType: string,
     numberProcessed: number = -1
   ): FizzBuzzBaseModel {
-    let imageBadge!: FizzBuzzBaseModel;
+    let imageBadge: FizzBuzzBaseModel = new NonFizzBuzz();
     switch (numberType) {
       case 'Fizz':
-        imageBadge = new Fizz(numberType, numberProcessed);
+        imageBadge = new Fizz(numberProcessed);
         break;
       case 'Buzz':
-        imageBadge = new Buzz(numberType, numberProcessed);
+        imageBadge = new Buzz(numberProcessed);
         break;
       case 'FizzBuzz':
-        imageBadge = new FizzBuzz(numberType, numberProcessed);
+        imageBadge = new FizzBuzz(numberProcessed);
         break;
-      case 'They are not':
-        imageBadge = new NonFizzBuzz();
+      default:
         break;
     }
     return imageBadge;

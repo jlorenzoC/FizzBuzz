@@ -6,11 +6,11 @@ import { CheckStore } from 'src/app/models/CheckStore';
   templateUrl: 'input-search-by-number.component.html',
 })
 export class InputSearchByNumberComponent {
-  @Input() id!: string;
+  @Input() id?: string;
   @Input() showContent = true;
-  @Input() filterValue!: string;
-  @Input() checkStore!: CheckStore;
-  @Input() filteredElements!: number[];
+  @Input() filterValue?: string;
+  @Input() checkStore?: CheckStore;
+  @Input() filteredElements?: number[];
 
   @Output() value = new EventEmitter<HTMLInputElement>();
   @Output() filterValueChange = new EventEmitter<string>();

@@ -4,6 +4,10 @@ $hostDeep: ':host::ng-deep';
   width: 100%;
 }
 
+.btn-view-active {
+  background-color: #efe8ff;
+}
+
 #{$hostDeep} {
   p-speedDial {
     .p-button {
@@ -12,6 +16,7 @@ $hostDeep: ':host::ng-deep';
   }
   p-scrolltop {
     .p-scrolltop.p-link {
+      z-index: 2 !important;
       background: #4caf5094 !important;
     }
   }
