@@ -10,12 +10,14 @@ export const hideShow = trigger('hideFilterCard', [
   state(
     'hide',
     style({
+      visibility: 'hidden',
       opacity: 0,
     })
   ),
   state(
     'show',
     style({
+      visibility: 'visible',
       opacity: 1,
     })
   ),
