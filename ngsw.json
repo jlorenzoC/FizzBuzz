@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1630192904692,
+  "timestamp": 1630207934681,
   "index": "/FizzBuzz/index.html",
   "assetGroups": [
     {
@@ -12,7 +12,7 @@
       },
       "urls": [
         "/FizzBuzz/index.html",
-        "/FizzBuzz/main.105fa7404148df786c2b.js",
+        "/FizzBuzz/main.c82d99ea9d263f0f18dd.js",
         "/FizzBuzz/manifest.webmanifest",
         "/FizzBuzz/polyfills.c0f66acce2f58f4dc2a0.js",
         "/FizzBuzz/runtime.7d7037a4a4625f3b56a2.js",
@@ -65,8 +65,8 @@
     "/FizzBuzz/assets/image/neutral.png": "0029549684aa5c8ffe9f6aa7448fab22c3868d50",
     "/FizzBuzz/color.6441e63a57ccc5105bad.png": "ff4c4bcb2207891b292f544edb4da9d2df5d45cf",
     "/FizzBuzz/hue.f8505bd4d6f3e3aa435b.png": "f81ae627637a684614aa726e206c73ce099a01fd",
-    "/FizzBuzz/index.html": "cc92463bea607691e5d95f21443fd49b73f4b1bb",
-    "/FizzBuzz/main.105fa7404148df786c2b.js": "f0b721aa29f50031c583e31ebe35d95b97f9f57e",
+    "/FizzBuzz/index.html": "2b51c6e79ab82c49a629a9297e8007b3c4d6a59b",
+    "/FizzBuzz/main.c82d99ea9d263f0f18dd.js": "706214d3681f967b783ee174c70b6feb7b899a64",
     "/FizzBuzz/manifest.webmanifest": "97cfc6dd719c79b3bc3daed17cd65c0ac8611da4",
     "/FizzBuzz/math-background.573083e68565e9744741.jpg": "93f4d6873178cc8fa2f9a42b746fdef3f4e68624",
     "/FizzBuzz/polyfills.c0f66acce2f58f4dc2a0.js": "ee4e631d2b24096557de6884c8f5d50147097bbe",
