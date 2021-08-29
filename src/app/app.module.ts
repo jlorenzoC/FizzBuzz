@@ -5,7 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
-import { GroupedInfoComponent } from './components/grouped-info/grouped-info.component';
 import { FzbzStatisticAreaComponent } from './components/fzbz-statistic-area/fzbz-statistic-area.component';
 import { GroupedInfoComponent } from './components/grouped-info/grouped-info.component';
 import { ImageBadgeComponent } from './components/image-badge/image-badge.component';
@@ -13,8 +12,6 @@ import { InputSearchByNumberComponent } from './components/input-search-by-numbe
 import { SkeletonFzbzCardComponent } from './components/skeleton-fzbz-card/skeleton-fzbz-card.component';
 import { FizzbuzzPipe } from './pipes/fizzbuzz/fizzbuzz.pipe';
 import { PrimengModule } from './primeng/primeng.module';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
