@@ -28,6 +28,6 @@ describe('FizzBuzz tests', () => {
       20
     );
 
-    cy.get('p-card.fizzbuzz-card[data-key=1]').should('have.text', ' 1 ');
+    cy.get('p-card.fizzbuzz-card[data-key=1]').contains('1');
   });
 });
