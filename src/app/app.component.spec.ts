@@ -1,10 +1,14 @@
 import { TestBed } from '@angular/core/testing';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { MessageService } from 'primeng/api';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AppComponent],
+      imports: [ServiceWorkerModule.register('', { enabled: false })],
+      providers: [MessageService],
     }).compileComponents();
   });
 
