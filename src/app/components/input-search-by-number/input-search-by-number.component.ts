@@ -14,7 +14,7 @@ export class InputSearchByNumberComponent {
 
   @Output() value = new EventEmitter<HTMLInputElement>();
   @Output() filterValueChange = new EventEmitter<string>();
-  @Output() onClickTagFilter = new EventEmitter<CheckStore>();
+  @Output() clickTagFilter = new EventEmitter<CheckStore>();
 
   correctIfStartsWithZeroAndEmit(input: HTMLInputElement) {
     if (input.value.indexOf('0') == 0) input.value = '';

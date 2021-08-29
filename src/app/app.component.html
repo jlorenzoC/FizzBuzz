@@ -78,7 +78,7 @@
       id="fzbz-input-filter"
       (value)="onInput($event)"
       [(filterValue)]="filterValue"
-      (onClickTagFilter)="filter($event)"
+      (clickTagFilter)="filter($event)"
       [checkStore]="checkStore"
     >
     </app-input-search-by-number>
@@ -151,9 +151,9 @@
       [style]="{
         width: '300px',
         position: 'relative',
-        opacity: (numberToProcessByFzBzPipe | fizzbuzz) == '' ? '0.9' : '1',
+        opacity: (numberToProcessByFzBzPipe | fizzbuzz) === '' ? '0.9' : '1',
         backgroundColor:
-          (numberToProcessByFzBzPipe | fizzbuzz) == '' ? '#dddddd' : 'none'
+          (numberToProcessByFzBzPipe | fizzbuzz) === '' ? '#dddddd' : 'none'
       }"
     >
       <ng-template pTemplate="header">

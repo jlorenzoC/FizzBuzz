@@ -20,7 +20,7 @@
     <app-fzbz-statistic-area
       class="flex-order-1 sm:mt-0 mt-3 sm:flex-order-0"
       [filteredElements]="filteredElements"
-      (checkedStatus)="onClickTagFilter.emit($event)"
+      (checkedStatus)="clickTagFilter.emit($event)"
       [checkStore]="checkStore"
     ></app-fzbz-statistic-area>
     <div
