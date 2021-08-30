@@ -10,7 +10,8 @@
     "deploy": "ng build --configuration --base-href=/FizzBuzz/",
     "testCoverageReport": "ng test --no-watch --code-coverage",
     "testCoverageReportInWhatchMode": "ng test --code-coverage",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
