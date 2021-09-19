@@ -4,7 +4,7 @@ export class Fizz extends FizzBuzzBaseModel {
   constructor(
     public numberProcessedByFizzBuzzAlgorithm: number,
     public fizzbuzzType: string = 'Fizz',
-    public imageNameAndFormat = 'fizz.png'
+    public imageNameAndFormat = 'fizz.webp'
   ) {
     super(fizzbuzzType, imageNameAndFormat);
   }
