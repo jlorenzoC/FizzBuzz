@@ -1,5 +1,7 @@
 import { environment } from '../../environments/environment';
 export abstract class FizzBuzzBaseModel {
+  width = '50';
+  height = '50';
   private pathToImageFolder = `..${environment.imagesPath}/assets/image/webp/`;
   constructor(
     public fizzbuzzType: string | number,

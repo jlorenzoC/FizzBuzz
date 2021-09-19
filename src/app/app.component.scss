@@ -21,9 +21,6 @@ $hostDeep: ':host::ng-deep';
     }
   }
   p-sidebar {
-    img {
-      height: 50px;
-    }
     .p-sidebar {
       height: auto !important;
     }
@@ -50,6 +47,10 @@ $hostDeep: ':host::ng-deep';
 }
 
 @media (min-device-width: 576px) {
+  img#fzbz-sidebar-image {
+    width: 110px !important;
+  }
+  
   #{$hostDeep} #fizzbuzz-filter-card {
     .p-card-body {
       padding: 1rem 1rem 0 1rem !important;

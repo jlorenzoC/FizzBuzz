@@ -6,16 +6,18 @@ import { FizzBuzzBaseModel } from '../../models/FizzBuzzBaseModel';
 @Component({
   selector: 'app-image-badge',
   template: `
-    <div class="flex justify-content-between" *ngIf="imageBadge">
+    <div class="flex justify-content-between" *ngIf="model">
       <img
-        [src]="imageBadge.getImagePath()"
-        [alt]="imageBadge.imageAlternative"
+        [src]="model.getImagePath()"
+        [alt]="model.imageAlternative"
         [class]="styleClass"
+        [height]="model.height"
+        [width]="model.width"
       />
       <p-badge
-        [value]="imageBadge.fizzbuzzType.toString()"
-        [pTooltip]="imageBadge.tooltip"
-        [severity]="imageBadge.badgeSeverity"
+        [value]="model.fizzbuzzType.toString()"
+        [pTooltip]="model.tooltip"
+        [severity]="model.badgeSeverity"
         class="cursor-pointer margin-top"
       ></p-badge>
     </div>
@@ -23,19 +25,15 @@ import { FizzBuzzBaseModel } from '../../models/FizzBuzzBaseModel';
   styles: [
     `
       .Buzz {
-        height: 150px;
         transform: translate(80px, -35px);
       }
       .Fizz {
-        height: 100px;
         transform: translate(80px, -10px);
       }
       .FizzBuzz {
-        height: 60px;
         transform: translate(55px, 10px);
       }
       .I-am-not {
-        height: 60px;
         transform: translate(100px, 10px);
       }
       .margin-top {
@@ -48,13 +46,13 @@ import { FizzBuzzBaseModel } from '../../models/FizzBuzzBaseModel';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImageBadgeComponent {
-  imageBadge?: FizzBuzzBaseModel;
+  model?: FizzBuzzBaseModel;
   imageBadgeFactory = new ModelFactory();
   styleClass?: string;
   @Input() set fizzbuzzType(input: { type: string; number: number }) {
-    this.imageBadge = this.imageBadgeFactory.getModel(input.type, input.number);
+    this.model = this.imageBadgeFactory.getModel(input.type, input.number);
     this.styleClass = replaceWhiteSpacesForHyphon(
-      this.imageBadge.fizzbuzzType.toString()
+      this.model.fizzbuzzType.toString()
     );
   }
 }

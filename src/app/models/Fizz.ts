@@ -1,6 +1,8 @@
 import { FizzBuzzBaseModel } from './FizzBuzzBaseModel';
 
 export class Fizz extends FizzBuzzBaseModel {
+  readonly width = '100';
+  readonly height = '100';
   constructor(
     public numberProcessedByFizzBuzzAlgorithm: number,
     public fizzbuzzType: string = 'Fizz',

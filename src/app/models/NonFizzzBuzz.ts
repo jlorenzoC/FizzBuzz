@@ -1,5 +1,7 @@
 import { FizzBuzzBaseModel } from 'src/app/models/FizzBuzzBaseModel';
 export class NonFizzBuzz extends FizzBuzzBaseModel {
+  readonly width = '60';
+  readonly height = '60';
   constructor(public fizzbuzzType: string = 'I am not') {
     super(fizzbuzzType, 'neutral.webp');
   }
