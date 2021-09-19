@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output
+} from '@angular/core';
 import { CheckStore } from 'src/app/models/CheckStore';
 import { Statistic } from './../../models/Statistic';
 
@@ -6,6 +12,7 @@ import { Statistic } from './../../models/Statistic';
   selector: 'app-fzbz-statistic-area',
   templateUrl: './fzbz-statistic-area.component.html',
   styleUrls: ['./fzbz-statistic-area.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FzbzStatisticAreaComponent {
   _filteredElements?: Statistic;

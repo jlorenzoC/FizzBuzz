@@ -8,16 +8,16 @@ import { FizzBuzzBaseModel } from '../../models/FizzBuzzBaseModel';
   template: `
     <div class="flex justify-content-between" *ngIf="model">
       <img
-        [src]="model.getImagePath()"
-        [alt]="model.imageAlternative"
+        [src]="imagePath"
+        [alt]="imageAlternative"
         [class]="styleClass"
         [height]="model.height"
         [width]="model.width"
       />
       <p-badge
-        [value]="model.fizzbuzzType.toString()"
-        [pTooltip]="model.tooltip"
-        [severity]="model.badgeSeverity"
+        [value]="model.fizzbuzzType | toString"
+        [pTooltip]="tooltip"
+        [severity]="badgeSeverity"
         class="cursor-pointer margin-top"
       ></p-badge>
     </div>
@@ -48,9 +48,17 @@ import { FizzBuzzBaseModel } from '../../models/FizzBuzzBaseModel';
 export class ImageBadgeComponent {
   model?: FizzBuzzBaseModel;
   imageBadgeFactory = new ModelFactory();
+  imagePath = '';
+  imageAlternative = '';
+  tooltip = '';
+  badgeSeverity = '';
   styleClass?: string;
   @Input() set fizzbuzzType(input: { type: string; number: number }) {
     this.model = this.imageBadgeFactory.getModel(input.type, input.number);
+    this.imagePath = this.model.getImagePath();
+    this.imageAlternative = this.model.imageAlternative;
+    this.tooltip = this.model.tooltip;
+    this.badgeSeverity = this.model.badgeSeverity;
     this.styleClass = replaceWhiteSpacesForHyphon(
       this.model.fizzbuzzType.toString()
     );

@@ -26,7 +26,7 @@
     ></button>
     <p-badge
       class="cursor-pointer absolute"
-      [value]="_filteredElements.filteredElements.toString()"
+      [value]="_filteredElements.filteredElements | toString"
     ></p-badge>
   </div>
   <div class="fzbz-btn-with-badge relative">
@@ -42,7 +42,7 @@
       (click)="onClickFizz()"
     ></button>
     <p-badge
-      [value]="_filteredElements.fizzElements.toString()"
+      [value]="_filteredElements.fizzElements | toString"
       severity="warning"
       class="cursor-pointer absolute"
     ></p-badge>
@@ -60,7 +60,7 @@
       (click)="onClickBuzz()"
     ></button>
     <p-badge
-      [value]="_filteredElements.buzzElements.toString()"
+      [value]="_filteredElements.buzzElements | toString"
       severity="info"
       class="cursor-pointer absolute"
     ></p-badge>
@@ -79,7 +79,7 @@
     ></button>
     <p-badge
       id="fzbz-fizzbuzz-badge"
-      [value]="_filteredElements.fizzbuzzElements.toString()"
+      [value]="_filteredElements.fizzbuzzElements | toString"
       severity="success"
       class="cursor-pointer absolute"
     ></p-badge>

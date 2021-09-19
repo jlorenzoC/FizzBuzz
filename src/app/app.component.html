@@ -32,7 +32,12 @@
         height="50"
       />
       <span
-        *ngIf="areAllTheNumbersProcessed(); else skeleton"
+        *ngIf="
+          numbersToProcessByFzBzPipe.length
+            | areAllTheNumbersProcessed
+              : AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM;
+          else skeleton
+        "
         class="p-input-icon-right w-8 md:w-5"
       >
         <i class="pi pi-search"></i>
@@ -59,7 +64,7 @@
       </ng-template>
       <app-fzbz-statistic-area
         class="sm:pl-1 mt-3 md:mt-0 w-full sm:w-auto"
-        [filteredElements]="numbersToProcessByFzBzPipe.slice()"
+        [filteredElements]="numbersToProcessByFzBzPipe | slice: 0"
         [checkStore]="checkStore"
         (checkedStatus)="filter($event)"
       ></app-fzbz-statistic-area>
@@ -75,8 +80,12 @@
     styleClass="shadow-8"
   >
     <app-input-search-by-number
-      [filteredElements]="numbersToProcessByFzBzPipe.slice()"
-      [showContent]="areAllTheNumbersProcessed()"
+      [filteredElements]="numbersToProcessByFzBzPipe | slice: 0"
+      [showContent]="
+        numbersToProcessByFzBzPipe.length
+          | areAllTheNumbersProcessed
+            : AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM
+      "
       class="w-full"
       id="fzbz-input-filter"
       (value)="onInput($event)"
@@ -145,7 +154,14 @@
   *ngIf="isIndividualCardViewActivated"
   class="fzbz-cards flex justify-content-center flex-wrap"
 >
-  <ng-container *ngIf="areAllTheNumbersProcessed(); else skeletonCards">
+  <ng-container
+    *ngIf="
+      numbersToProcessByFzBzPipe.length
+        | areAllTheNumbersProcessed
+          : AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM;
+      else skeletonCards
+    "
+  >
     <p-card
       [attr.data-key]="numberToProcessByFzBzPipe"
       class="fizzbuzz-card"
@@ -161,12 +177,12 @@
     >
       <ng-template pTemplate="header">
         <span class="p-card-title absolute card-title2">
-          {{ numberToProcessByFzBzPipe.toString() }}
+          {{ numberToProcessByFzBzPipe }}
         </span>
       </ng-template>
       <app-image-badge
         [fizzbuzzType]="{
-          type: (numberToProcessByFzBzPipe | fizzbuzz: false).toString(),
+          type: numberToProcessByFzBzPipe | fizzbuzz: false | toString,
           number: numberToProcessByFzBzPipe
         }"
       ></app-image-badge>

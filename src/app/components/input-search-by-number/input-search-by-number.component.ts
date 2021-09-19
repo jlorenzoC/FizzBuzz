@@ -1,9 +1,16 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { CheckStore } from 'src/app/models/CheckStore';
 
 @Component({
   selector: 'app-input-search-by-number',
   templateUrl: 'input-search-by-number.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputSearchByNumberComponent {
   @Input() id?: string;

@@ -8,20 +8,20 @@
   <ng-template pTemplate="header">
     <img
       [class]="'p-3' + ' grouped-' + styleClass + '-image'"
-      [alt]="imageBadge?.imageAlternative"
-      [src]="imageBadge?.getImagePath()"
+      [alt]="imageAlternative"
+      [src]="imgePath"
     />
 
     <p-tag
       [rounded]="true"
       styleClass="p-mr-2 absolute left-0 m-2"
-      [value]="imageBadge.fizzbuzzType.toString()"
-      [severity]="imageBadge.badgeSeverity.toString()"
+      [value]="imageBadge.fizzbuzzType | toString"
+      [severity]="badgeSeverity | toString"
     ></p-tag>
   </ng-template>
   <div class="flex flex-wrap justify-content-center">
     <div
-      [ngStyle]="getHighlighted(number.toString())"
+      [ngStyle]="getHighlighted(number | toString)"
       class="py-2 px-3 align-content-center font-bold text-xl"
       *ngFor="let number of elementsGroup"
     >

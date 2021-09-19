@@ -10,7 +10,9 @@ import { GroupedInfoComponent } from './components/grouped-info/grouped-info.com
 import { ImageBadgeComponent } from './components/image-badge/image-badge.component';
 import { InputSearchByNumberComponent } from './components/input-search-by-number/input-search-by-number.component';
 import { SkeletonFzbzCardComponent } from './components/skeleton-fzbz-card/skeleton-fzbz-card.component';
+import { AreAllTheNumbersProcessedPipe } from './pipes/are-all-the-numbers-processed/are-all-the-numbers-processed.pipe';
 import { FizzbuzzPipe } from './pipes/fizzbuzz/fizzbuzz.pipe';
+import { ToStringPipe } from './pipes/to-string/to-string.pipe';
 import { PrimengModule } from './primeng/primeng.module';
 
 @NgModule({
@@ -22,6 +24,8 @@ import { PrimengModule } from './primeng/primeng.module';
     InputSearchByNumberComponent,
     FzbzStatisticAreaComponent,
     GroupedInfoComponent,
+    AreAllTheNumbersProcessedPipe,
+    ToStringPipe,
   ],
   imports: [
     BrowserModule,
