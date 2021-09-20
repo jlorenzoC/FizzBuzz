@@ -1,35 +1,35 @@
 <div
-class="
-  sm:flex
-  w-full
-  hidden
-  justify-content-center
-  sm:justify-content-end
-  pt-2
-"
+  class="
+    sm:flex
+    w-full
+    hidden
+    justify-content-center
+    sm:justify-content-end
+    pt-2
+  "
 >
-<button
-  aria-label="Change to grouped number view"
-  pButton
-  pRipple
-  type="button"
-  icon="pi pi-id-card"
-  class="p-button-rounded p-button-sm p-button-text p-button-plain"
-  (click)="view.emit(staticResource.GROUP_VIEW)"
-  [ngClass]="{ 'btn-view-active': isGroupedCardViewActivated }"
-  pTooltip="Grouped card view"
-  tooltipPosition="bottom"
-></button>
-<button
-  aria-label="Change to individual number view"
-  pButton
-  pRipple
-  type="button"
-  icon="pi pi-table"
-  class="p-button-rounded p-button-sm p-button-text p-button-plain"
-  (click)="view.emit(staticResource.INDIVIDUAL_VIEW)"
-  [ngClass]="{ 'btn-view-active': isIndividualCardViewActivated }"
-  pTooltip="Individual card view"
-  tooltipPosition="bottom"
-></button>
+  <button
+    aria-label="Change to grouped number view"
+    pButton
+    pRipple
+    type="button"
+    icon="pi pi-id-card"
+    class="p-button-rounded p-button-sm p-button-text p-button-plain"
+    (click)="view.emit(staticResource.GROUP_VIEW)"
+    [ngClass]="{ 'btn-view-active': isGroupedCardViewActivated }"
+    pTooltip="Grouped card view"
+    tooltipPosition="bottom"
+  ></button>
+  <button
+    aria-label="Change to individual number view"
+    pButton
+    pRipple
+    type="button"
+    icon="pi pi-table"
+    class="p-button-rounded p-button-sm p-button-text p-button-plain"
+    (click)="view.emit(staticResource.INDIVIDUAL_VIEW)"
+    [ngClass]="{ 'btn-view-active': isIndividualCardViewActivated }"
+    pTooltip="Individual card view"
+    tooltipPosition="bottom"
+  ></button>
 </div>
