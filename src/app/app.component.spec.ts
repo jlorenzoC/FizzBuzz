@@ -1,3 +1,4 @@
+import { AreAllTheNumbersProcessedPipe } from './pipes/are-all-the-numbers-processed/are-all-the-numbers-processed.pipe';
 import { TestBed } from '@angular/core/testing';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { MessageService } from 'primeng/api';
@@ -6,7 +7,7 @@ import { AppComponent } from './app.component';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AppComponent],
+      declarations: [AppComponent, AreAllTheNumbersProcessedPipe],
       imports: [ServiceWorkerModule.register('', { enabled: false })],
       providers: [MessageService],
     }).compileComponents();
