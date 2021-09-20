@@ -4,10 +4,6 @@ $hostDeep: ':host::ng-deep';
   width: 100%;
 }
 
-.btn-view-active {
-  background-color: #efe8ff;
-}
-
 #{$hostDeep} {
   p-speedDial {
     .p-button {
@@ -47,10 +43,6 @@ $hostDeep: ':host::ng-deep';
 }
 
 @media (min-device-width: 576px) {
-  img#fzbz-sidebar-image {
-    width: 110px !important;
-  }
-  
   #{$hostDeep} #fizzbuzz-filter-card {
     .p-card-body {
       padding: 1rem 1rem 0 1rem !important;
@@ -60,7 +52,6 @@ $hostDeep: ':host::ng-deep';
       padding-bottom: 5px;
     }
   }
-
   .p-sidebar-content {
     padding: 14px !important;
   }

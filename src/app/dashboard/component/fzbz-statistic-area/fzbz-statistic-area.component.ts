@@ -6,7 +6,7 @@ import {
   Output
 } from '@angular/core';
 import { CheckStore } from 'src/app/models/CheckStore';
-import { Statistic } from './../../models/Statistic';
+import { Statistic } from '../../../models/Statistic';
 
 @Component({
   selector: 'app-fzbz-statistic-area',

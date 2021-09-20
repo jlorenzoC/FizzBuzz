@@ -6,69 +6,23 @@
   "
 >
   <p-sidebar
-    [dismissible]="false"
-    [showCloseIcon]="false"
-    [closeOnEscape]="false"
     position="top"
     [(visible)]="displayTopBar"
     [modal]="false"
     class="flex-grow-1 flex flex-wrap h-auto z-5"
   >
-    <div
-      class="
-        flex flex-column
-        md:flex-row
-        align-items-center
-        justify-content-center
-        py-2
+    <app-dashboard-inside-sidebar
+      [numbersGenerationFinished]="
+        numbersToProcessByFzBzPipe.length
+          | areAllTheNumbersProcessed
+            : staticResource.AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM
       "
-    >
-      <img
-        id="fzbz-sidebar-image"
-        class="pb-2 md:px-4"
-        src=".\assets\image\webp\favicon.webp"
-        alt="FizzBuzz logo"
-        width="50"
-        height="50"
-      />
-      <span
-        *ngIf="
-          numbersToProcessByFzBzPipe.length
-            | areAllTheNumbersProcessed
-              : AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM;
-          else skeleton
-        "
-        class="p-input-icon-right w-8 md:w-5"
-      >
-        <i class="pi pi-search"></i>
-        <input
-          inputmode="numeric"
-          id="fzbz-topbar-input-filter"
-          #input
-          (input)="onInput(input)"
-          [(ngModel)]="filterValue"
-          pInputText
-          placeholder="Type a number"
-          pKeyFilter="int"
-          class="w-full p-inputtext-sm"
-        />
-      </span>
-      <ng-template #skeleton>
-        <div class="w-8 md:w-5">
-          <p-skeleton
-            class="w-full"
-            height="2.5rem"
-            borderRadius="16px"
-          ></p-skeleton>
-        </div>
-      </ng-template>
-      <app-fzbz-statistic-area
-        class="sm:pl-1 mt-3 md:mt-0 w-full sm:w-auto"
-        [filteredElements]="numbersToProcessByFzBzPipe | slice: 0"
-        [checkStore]="checkStore"
-        (checkedStatus)="filter($event)"
-      ></app-fzbz-statistic-area>
-    </div>
+      [(filterValue)]="filterValue"
+      [numbersToProcessByFzBzPipe]="numbersToProcessByFzBzPipe"
+      [checkStore]="checkStore"
+      (emitValue)="onInput($event)"
+      (checkStoreEmitter)="filter($event)"
+    ></app-dashboard-inside-sidebar>
   </p-sidebar>
 </section>
 
@@ -84,7 +38,7 @@
       [showContent]="
         numbersToProcessByFzBzPipe.length
           | areAllTheNumbersProcessed
-            : AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM
+            : staticResource.AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM
       "
       class="w-full"
       id="fzbz-input-filter"
@@ -94,39 +48,11 @@
       [checkStore]="checkStore"
     >
     </app-input-search-by-number>
-    <div
-      class="
-        sm:flex
-        w-full
-        hidden
-        justify-content-center
-        sm:justify-content-end
-        pt-2
-      "
-    >
-      <button
-        pButton
-        pRipple
-        type="button"
-        icon="pi pi-id-card"
-        class="p-button-rounded p-button-sm p-button-text p-button-plain"
-        (click)="toggleView(GROUP_VIEW)"
-        [ngClass]="{ 'btn-view-active': isGroupedCardViewActivated }"
-        pTooltip="Grouped card view"
-        tooltipPosition="bottom"
-      ></button>
-      <button
-        pButton
-        pRipple
-        type="button"
-        icon="pi pi-table"
-        class="p-button-rounded p-button-sm p-button-text p-button-plain"
-        (click)="toggleView(INDIVIDUAL_VIEW)"
-        [ngClass]="{ 'btn-view-active': isIndividualCardViewActivated }"
-        pTooltip="Individual card view"
-        tooltipPosition="bottom"
-      ></button>
-    </div>
+    <app-view-switcher
+      [isGroupedCardViewActivated]="isGroupedCardViewActivated"
+      [isIndividualCardViewActivated]="isIndividualCardViewActivated"
+      (view)="toggleView($event)"
+    ></app-view-switcher>
   </p-card>
 </section>
 
@@ -158,7 +84,7 @@
     *ngIf="
       numbersToProcessByFzBzPipe.length
         | areAllTheNumbersProcessed
-          : AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM;
+          : staticResource.AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM;
       else skeletonCards
     "
   >

@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { MenuItem, PrimeNGConfig } from 'primeng/api';
 import { interval, Subscription } from 'rxjs';
@@ -6,6 +7,7 @@ import { hideShow } from './animations';
 import { CheckStore } from './models/CheckStore';
 import { FilteredElements } from './models/FilteredElements';
 import { HandleUnrecoverableStateService } from './services/handle-unrecoverable-state.service';
+import { StaticResourceService } from './services/static-resource.service';
 
 @Component({
   selector: 'app-root',
@@ -27,36 +29,37 @@ export class AppComponent implements OnInit, OnDestroy {
   groupedCards?: [string, number[]][];
   filteredElements?: FilteredElements;
   numbersToProcessByFzBzPipe: number[] = [];
-  readonly AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM = 100;
-  readonly GROUP_VIEW = 'grouped';
-  readonly INDIVIDUAL_VIEW = 'individual';
 
-  @HostListener('window:scroll', ['$event.target']) onScroll(
-    document: Document
-  ): void {
-    const yScrollPosition = document.documentElement.scrollTop;
+  @HostListener('window:scroll', ['$event.target']) onScroll(): void {
+    const yScrollPosition = this.viewPortScroller.getScrollPosition()[1];
     if (yScrollPosition >= 100) this.displayTopBar = true;
     else this.displayTopBar = false;
   }
 
   constructor(
     private primengConfig: PrimeNGConfig,
-    private handleUnrecoverableStateService: HandleUnrecoverableStateService
+    private handleUnrecoverableStateService: HandleUnrecoverableStateService,
+    private viewPortScroller: ViewportScroller,
+    public staticResource: StaticResourceService
   ) {
     this.mockCards = new Array<number>(
-      this.AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM
+      this.staticResource.AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM
     );
     this.subscription = interval(2)
-      .pipe(take(this.AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM))
+      .pipe(
+        take(
+          this.staticResource.AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM
+        )
+      )
       .subscribe(this.setCollection);
     this.items = [
       {
         icon: 'pi pi-id-card',
-        command: () => this.toggleView(this.GROUP_VIEW),
+        command: () => this.toggleView(this.staticResource.GROUP_VIEW),
       },
       {
         icon: 'pi pi-table',
-        command: () => this.toggleView(this.INDIVIDUAL_VIEW),
+        command: () => this.toggleView(this.staticResource.INDIVIDUAL_VIEW),
       },
     ];
   }
@@ -68,7 +71,7 @@ export class AppComponent implements OnInit, OnDestroy {
   areAllTheNumbersProcessed(): boolean {
     return (
       this.numbersToProcessByFzBzPipe.length ===
-      this.AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM
+      this.staticResource.AMOUNT_OF_NUMBERS_TO_PASS_IN_FIZZBUZZ_ALGORITHM
     );
   }
 
@@ -86,8 +89,9 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   toggleView(view?: string) {
-    this.isGroupedCardViewActivated = view === this.GROUP_VIEW;
-    this.isIndividualCardViewActivated = view === this.INDIVIDUAL_VIEW;
+    this.isGroupedCardViewActivated = view === this.staticResource.GROUP_VIEW;
+    this.isIndividualCardViewActivated =
+      view === this.staticResource.INDIVIDUAL_VIEW;
     this.filter();
   }
 
