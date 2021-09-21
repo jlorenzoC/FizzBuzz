@@ -29,6 +29,7 @@ $borderRadius: 20px 20px 0 0;
   .p-card {
     height: 100%;
     overflow: hidden;
+    max-height: 480px;
   }
 
   .grouped-Fizz-card .p-card-body {
