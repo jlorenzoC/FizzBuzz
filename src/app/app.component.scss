@@ -47,7 +47,7 @@ p-sidebar .p-sidebar {
   align-content: center;
   flex-wrap: wrap;
   row-gap: 10px;
-  gap: 30px;
+  padding-bottom: 100px;
 }
 
 .p-card-title {
@@ -77,6 +77,14 @@ p-sidebar .p-sidebar {
 
   p-speedDial {
     display: none;
+  }
+
+  .filter-section-container {
+    margin-bottom: 0;
+  }
+
+  .fzbz-grouped-cards {
+    padding-bottom: 0;
   }
 }
 
