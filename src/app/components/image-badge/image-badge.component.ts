@@ -15,7 +15,7 @@ import { FizzBuzzBaseModel } from '../../models/FizzBuzzBaseModel';
         [width]="model.width"
       />
       <p-badge
-        *ngIf="model.fizzbuzzType != 'I am not'"
+        *ngIf="model.fizzbuzzType !== 'I am not'"
         [value]="model.fizzbuzzType | toString"
         [pTooltip]="tooltip"
         [severity]="badgeSeverity"
