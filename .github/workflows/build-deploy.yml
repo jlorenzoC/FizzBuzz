@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - without-primeflex
   # pull_request:
   #   types: [opened, synchronize, reopened]
   #     branches:
