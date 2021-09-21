@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1632108759698,
+  "timestamp": 1632228926593,
   "index": "/FizzBuzz/index.html",
   "assetGroups": [
     {
@@ -12,11 +12,11 @@
       },
       "urls": [
         "/FizzBuzz/index.html",
-        "/FizzBuzz/main.b168b61d675ae94574ab.js",
+        "/FizzBuzz/main.5063df37828f27d5de84.js",
         "/FizzBuzz/manifest.webmanifest",
-        "/FizzBuzz/polyfills.1241eb606d06a63ae0bc.js",
+        "/FizzBuzz/polyfills.c0f66acce2f58f4dc2a0.js",
         "/FizzBuzz/runtime.7d7037a4a4625f3b56a2.js",
-        "/FizzBuzz/styles.1a9b3ccdda9d8a068bbc.css"
+        "/FizzBuzz/styles.9bd2858e017b2dbd104d.css"
       ],
       "patterns": []
     },
@@ -65,11 +65,11 @@
     "/FizzBuzz/assets/image/webp/neutral.webp": "d21b85c3b717abdc015b5a880732e2adf7c1681a",
     "/FizzBuzz/color.6441e63a57ccc5105bad.png": "ff4c4bcb2207891b292f544edb4da9d2df5d45cf",
     "/FizzBuzz/hue.f8505bd4d6f3e3aa435b.png": "f81ae627637a684614aa726e206c73ce099a01fd",
-    "/FizzBuzz/index.html": "bb9d654e86500a4cb769bc9be1b91ecf11022f06",
-    "/FizzBuzz/main.b168b61d675ae94574ab.js": "62e14b88fe8c3ceb915309aac20b55e8a18359a2",
+    "/FizzBuzz/index.html": "c8dc2e29e849045a926615db491adc4bbe50238d",
+    "/FizzBuzz/main.5063df37828f27d5de84.js": "b58f5ee31ee64b87f3d479cf0b014d92bdd52bf7",
     "/FizzBuzz/manifest.webmanifest": "0ab77d3d69153c3d95f5d8bc377090d946643f3c",
     "/FizzBuzz/math-background.025df02023ff7fe504b1.webp": "007baff92602b8176a11950f7cd0a557cdf20c84",
-    "/FizzBuzz/polyfills.1241eb606d06a63ae0bc.js": "4461d1bc9bbdf8fa83925902a65747dc4fd2e889",
+    "/FizzBuzz/polyfills.c0f66acce2f58f4dc2a0.js": "ee4e631d2b24096557de6884c8f5d50147097bbe",
     "/FizzBuzz/primeicons.3a0d4a58da62cf7c55bb.ttf": "13889b5e1915891dd548d6b71c1cccddb469e13d",
     "/FizzBuzz/primeicons.c55d94a248721abbd220.svg": "4a2c5258656a8b900ddeabf5ac62aace724f5a0d",
     "/FizzBuzz/primeicons.dfbfef2de4bfb34e9722.eot": "6441e65a2458d0c813cd2bf6e8648c1f54327bdb",
@@ -81,7 +81,7 @@
     "/FizzBuzz/roboto-v20-latin-ext_latin-regular.5cb5c8f08bb4e6cb64c3.woff2": "a39cd33a2457d12a3eb61e0841c91b73e4af90ac",
     "/FizzBuzz/roboto-v20-latin-ext_latin-regular.ae804dc012b1b5255474.woff": "c574d647bbf9412b82b0cdcb0e702a3a93ffd022",
     "/FizzBuzz/runtime.7d7037a4a4625f3b56a2.js": "2356d8dc24f5e4dd84edb3cdfc1f69319be0ece7",
-    "/FizzBuzz/styles.1a9b3ccdda9d8a068bbc.css": "29ad634d90c63975ed6c5dae9a7fcf0bb6158a3a"
+    "/FizzBuzz/styles.9bd2858e017b2dbd104d.css": "01bb5035661847095fc689aaed9b3d9be7734b9d"
   },
   "navigationUrls": [
     {
