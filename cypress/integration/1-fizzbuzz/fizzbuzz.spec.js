@@ -10,7 +10,7 @@ describe('FizzBuzz tests', () => {
       .should('exist');
   });
   it('Should exist div with text Which number is Fizz, Buzz, or FizzBuzz?', () => {
-    cy.get('div.p-card-subtitle', { timeout: 10000 })
+    cy.get('div.p-card-subtitle:not(.skeleton-subtitle)', { timeout: 10000 })
       .contains('FizzBuzz')
       .should('exist');
   });
