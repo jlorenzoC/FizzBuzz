@@ -1,12 +1,4 @@
-<div
-  class="
-    flex flex-column
-    md:flex-row
-    align-items-center
-    justify-content-center
-    py-2
-  "
->
+<div class="inside-sidebar-container">
   <img
     id="fzbz-sidebar-image"
     class="pb-2 md:px-4"
@@ -17,12 +9,11 @@
   />
   <span
     *ngIf="numbersGenerationFinished; else skeleton"
-    class="p-input-icon-right w-8 md:w-5"
+    class="p-input-icon-right inside-sidebar-input-container"
   >
     <i class="pi pi-search"></i>
     <input
       inputmode="numeric"
-      id="fzbz-topbar-input-filter"
       #input
       (input)="emitValue.emit(input)"
       [ngModel]="filterValue"
@@ -30,20 +21,15 @@
       pInputText
       placeholder="Type a number"
       pKeyFilter="int"
-      class="w-full p-inputtext-sm"
+      class="inside-sidebar-input p-inputtext-sm"
     />
   </span>
   <ng-template #skeleton>
-    <div class="w-8 md:w-5">
-      <p-skeleton
-        class="w-full"
-        height="2.5rem"
-        borderRadius="16px"
-      ></p-skeleton>
+    <div class="input-skeleton">
+      <p-skeleton height="2.5rem" borderRadius="16px"></p-skeleton>
     </div>
   </ng-template>
   <app-fzbz-statistic-area
-    class="sm:pl-1 mt-3 md:mt-0 w-full sm:w-auto"
     [filteredElements]="numbersToProcessByFzBzPipe | slice: 0"
     [checkStore]="checkStore"
     (checkedStatus)="checkStoreEmitter.emit($event)"

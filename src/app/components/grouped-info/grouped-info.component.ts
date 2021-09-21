@@ -31,17 +31,4 @@ export class GroupedInfoComponent {
       this.imageBadge.fizzbuzzType.toString()
     );
   }
-
-  getHighlighted(filterCriteria: string): any {
-    if (this.filterCriteria !== '')
-      return filterCriteria.includes(this.filterCriteria.toString())
-        ? {
-            backgroundColor: '#673ab7',
-            color: 'white',
-            borderRadius: '16px',
-            margin: '.5px',
-          }
-        : {};
-    return {};
-  }
 }

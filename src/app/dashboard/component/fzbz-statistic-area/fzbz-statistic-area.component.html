@@ -1,14 +1,5 @@
-<div
-  class="
-    flex flex-wrap
-    sm:justify-content-end
-    justify-content-center
-    mt-2
-    md:mt-1
-  "
-  *ngIf="_filteredElements"
->
-  <div class="fzbz-btn-with-badge relative">
+<div class="statistic-container" *ngIf="_filteredElements">
+  <div class="statistic-button-with-badge">
     <button
       aria-label="Choose all numbers"
       id="fzbz-btn-all-numbers"
@@ -27,11 +18,11 @@
       [disabled]="checkStore?.allIsChecked"
     ></button>
     <p-badge
-      class="cursor-pointer absolute"
+      class="cursor-pointer"
       [value]="_filteredElements.filteredElements | toString"
     ></p-badge>
   </div>
-  <div class="fzbz-btn-with-badge relative">
+  <div class="statistic-button-with-badge">
     <button
       aria-label="Choose Fizz numbers"
       id="fzbz-btn-fizz-numbers"
@@ -48,10 +39,10 @@
     <p-badge
       [value]="_filteredElements.fizzElements | toString"
       severity="warning"
-      class="cursor-pointer absolute"
+      class="cursor-pointer"
     ></p-badge>
   </div>
-  <div class="fzbz-btn-with-badge relative">
+  <div class="statistic-button-with-badge">
     <button
       aria-label="Choose Buzz numbers"
       id="fzbz-btn-buzz-numbers"
@@ -68,10 +59,10 @@
     <p-badge
       [value]="_filteredElements.buzzElements | toString"
       severity="info"
-      class="cursor-pointer absolute"
+      class="cursor-pointer"
     ></p-badge>
   </div>
-  <div class="fzbz-btn-with-badge relative">
+  <div class="statistic-button-with-badge">
     <button
       aria-label="Choose FizzBuzz numbers"
       id="fzbz-btn-fizzbuzz-numbers"
@@ -89,7 +80,7 @@
       id="fzbz-fizzbuzz-badge"
       [value]="_filteredElements.fizzbuzzElements | toString"
       severity="success"
-      class="cursor-pointer absolute"
+      class="cursor-pointer"
     ></p-badge>
   </div>
 </div>

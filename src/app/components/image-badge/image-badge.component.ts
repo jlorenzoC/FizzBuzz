@@ -15,7 +15,7 @@ import { FizzBuzzBaseModel } from '../../models/FizzBuzzBaseModel';
         [width]="model.width"
       />
       <p-badge
-        *ngIf="model.fizzbuzzType != 'I am not'"
+        *ngIf="model.fizzbuzzType !== 'I am not'"
         [value]="model.fizzbuzzType | toString"
         [pTooltip]="tooltip"
         [severity]="badgeSeverity"
@@ -26,16 +26,16 @@ import { FizzBuzzBaseModel } from '../../models/FizzBuzzBaseModel';
   styles: [
     `
       .Buzz {
-        transform: translate(80px, -35px);
+        transform: translate(80px, -65px);
       }
       .Fizz {
-        transform: translate(80px, -10px);
+        transform: translate(80px, -40px);
       }
       .FizzBuzz {
-        transform: translate(55px, 10px);
+        transform: translate(55px, -15px);
       }
       .I-am-not {
-        transform: translate(100px, 10px);
+        transform: translate(100px, -20px);
       }
       .margin-top {
         position: absolute;

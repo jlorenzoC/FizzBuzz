@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { MessageService } from 'primeng/api';
@@ -15,6 +14,7 @@ import { GroupedInfoComponent } from './components/grouped-info/grouped-info.com
 import { ImageBadgeComponent } from './components/image-badge/image-badge.component';
 import { SkeletonFzbzCardComponent } from './components/skeleton-fzbz-card/skeleton-fzbz-card.component';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { HighlightDirective } from './directive/highlight.directive';
 import { FizzbuzzPipe } from './pipes/fizzbuzz/fizzbuzz.pipe';
 
 @NgModule({
@@ -24,6 +24,7 @@ import { FizzbuzzPipe } from './pipes/fizzbuzz/fizzbuzz.pipe';
     ImageBadgeComponent,
     GroupedInfoComponent,
     SkeletonFzbzCardComponent,
+    HighlightDirective,
   ],
   imports: [
     BrowserAnimationsModule,

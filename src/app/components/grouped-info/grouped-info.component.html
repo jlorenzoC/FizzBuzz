@@ -1,31 +1,28 @@
-<p-card
-  [class]="
-    'align-self-stretch relative grouped-' +
-    styleClass +
-    '-card  shadow-8 w-full'
-  "
->
+<p-card [class]="'grouped-' + styleClass + '-card' + ' shadow'">
   <ng-template pTemplate="header">
     <img
-      [class]="'p-3' + ' grouped-' + styleClass + '-image'"
+      [class]="'grouped-' + styleClass + '-image'"
       [alt]="imageAlternative"
       [src]="imgePath"
     />
 
     <p-tag
       [rounded]="true"
-      styleClass="p-mr-2 absolute left-0 m-2"
       [value]="imageBadge.fizzbuzzType | toString"
       [severity]="badgeSeverity | toString"
     ></p-tag>
   </ng-template>
-  <div class="flex flex-wrap justify-content-center">
-    <div
-      [ngStyle]="getHighlighted(number | toString)"
-      class="py-2 px-3 align-content-center font-bold text-xl"
+  <ul
+    aria-label="Grouped numbers by FizzBuzz denomination"
+    class="grouped-numbers"
+  >
+    <li
+      appHighlight
+      [numberToHighlight]="number | toString"
+      [searchCriteriaNumberToCompareTo]="filterCriteria"
       *ngFor="let number of elementsGroup"
     >
       {{ number }}
-    </div>
-  </div>
+    </li>
+  </ul>
 </p-card>

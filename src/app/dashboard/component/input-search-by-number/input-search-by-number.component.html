@@ -1,42 +1,16 @@
 <div *ngIf="showContent; else skeleton">
-  <div class="flex flex-wrap justify-content-center sm:justify-content-between">
-    <div
-      id="isbn-card-title"
-      class="
-        p-card-title
-        flex
-        justify-content-center
-        text-yellow-500
-        font-italic
-      "
-    >
+  <div class="input-container">
+    <div id="isbn-card-title" class="p-card-title">
       FizzBuzz
-      <i
-        (click)="op.toggle($event)"
-        class="pi pi-info-circle ml-2 text-gray-500"
-        style="cursor: help"
-      ></i>
+      <i (click)="op.toggle($event)" class="pi pi-info-circle"></i>
     </div>
     <app-fzbz-statistic-area
-      class="flex-order-1 sm:mt-0 mt-3 sm:flex-order-0"
       [filteredElements]="filteredElements"
       (checkedStatus)="clickTagFilter.emit($event)"
       [checkStore]="checkStore"
     ></app-fzbz-statistic-area>
-    <div
-      class="
-        p-card-subtitle
-        w-full
-        flex
-        justify-content-center
-        sm:justify-content-start
-        lg:text-sm
-        text-xs
-      "
-    >
-      Which number is Fizz, Buzz, or FizzBuzz?
-    </div>
-    <span class="p-input-icon-right w-10 sm:w-12 mt-2">
+    <div class="p-card-subtitle">Which number is Fizz, Buzz, or FizzBuzz?</div>
+    <span class="p-input-icon-right">
       <i class="pi pi-search"></i>
       <input
         inputmode="numeric"
@@ -48,44 +22,25 @@
         pInputText
         placeholder="Type a number"
         pKeyFilter="int"
-        class="w-full p-inputtext-sm"
+        class="p-inputtext-sm"
       />
     </span>
   </div>
 </div>
 <ng-template #skeleton>
-  <div class="flex justify-content-center flex-wrap">
-    <div
-      class="
-        p-card-title
-        w-full
-        sm:w-4
-        flex
-        justify-content-center
-        sm:justify-content-start
-      "
-    >
-      <p-skeleton
-        id="title-skeleton"
-        height="1.2rem"
-        styleClass="my-1"
-        borderRadius="16px"
-        class="w-5"
-      ></p-skeleton>
+  <div class="input-container">
+    <div class="p-card-title skeleton-title">
+      <p-skeleton height="1.2rem" borderRadius="16px"></p-skeleton>
     </div>
     <app-fzbz-statistic-area
-      class="flex-auto flex-order-1 sm:mt-0 mt-3 sm:flex-order-0"
       [filteredElements]="filteredElements"
       [checkStore]="checkStore"
     ></app-fzbz-statistic-area>
-    <div
-      class="w-full mb-2 flex justify-content-center sm:justify-content-start"
-    >
-      <p-skeleton class="w-7" borderRadius="16px"></p-skeleton>
+    <div class="p-card-subtitle skeleton-subtitle">
+      <p-skeleton borderRadius="16px"></p-skeleton>
     </div>
     <p-skeleton
-      class="w-10 sm:w-12"
-      styleClass="mt-1"
+      class="skeleton-input"
       height="2.8rem"
       borderRadius="16px"
     ></p-skeleton>
@@ -99,12 +54,12 @@
   [dismissable]="true"
 >
   <ng-template pTemplate>
-    <p class="font-italic text-justify line-height-2 text-gray-600">
-      <b>FizzBuzz</b> is an algorithm which processes the numbers from 1 to 100. It
-      will print the word "Fizz", whenever 3 and its multiples are encountered,
-      "Buzz" whenever 5 and its multiples are encountered, and "FizzBuzz",
-      whenever numbers that are multiples of both 3 and 5, are encountered, in 
-      another case, it prints the number.
+    <p class="fzbz-decription-text">
+      <b>FizzBuzz</b> is an algorithm which processes the numbers from 1 to 100.
+      It will print the word "Fizz", whenever 3 and its multiples are
+      encountered, "Buzz" whenever 5 and its multiples are encountered, and
+      "FizzBuzz", whenever numbers that are multiples of both 3 and 5, are
+      encountered, in another case, it prints the number.
     </p>
   </ng-template>
 </p-overlayPanel>

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BadgeModule } from 'primeng/badge';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { KeyFilterModule } from 'primeng/keyfilter';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { SkeletonModule } from 'primeng/skeleton';
 import { TooltipModule } from 'primeng/tooltip';
@@ -31,6 +32,7 @@ import { ViewSwitcherComponent } from './component/view-switcher/view-switcher.c
     ButtonModule,
     TooltipModule,
     SkeletonModule,
+    KeyFilterModule,
     InputTextModule,
     OverlayPanelModule,
   ],

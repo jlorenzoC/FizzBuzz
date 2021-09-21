@@ -1,58 +1,106 @@
 $hostDeep: ':host::ng-deep';
+@use '../styles' as variable;
 
 .p-inputtext {
   width: 100%;
 }
 
-#{$hostDeep} {
-  p-speedDial {
-    .p-button {
-      background: #673ab79e !important;
-    }
-  }
-  p-scrolltop {
-    .p-scrolltop.p-link {
-      z-index: 2 !important;
-      background: #4caf5094 !important;
-    }
-  }
-  p-sidebar {
-    .p-sidebar {
-      height: auto !important;
-    }
-    .p-sidebar-header {
-      display: none;
-    }
-    .p-sidebar-content {
-      padding: 5px !important;
-    }
-  }
-  #fizzbuzz-filter-card {
-    .p-card-body {
-      padding: 0.75rem 0.384rem 0.3rem 0.384rem;
-    }
-    .p-card-content {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
+p-scrolltop {
+  .p-scrolltop.p-link {
+    z-index: 2 !important;
+    background: #4caf4fe8 !important;
   }
 }
-.card-title2 {
-  margin-left: 15px;
-  margin-top: 10px;
+p-sidebar .p-sidebar {
+  height: auto !important;
 }
 
-@media (min-device-width: 576px) {
-  #{$hostDeep} #fizzbuzz-filter-card {
+#{$hostDeep} {
+  .p-sidebar-header {
+    display: none;
+  }
+
+  .p-sidebar-top {
+    height: initial;
+  }
+}
+
+.filter-card {
+  width: 100%;
+  .p-card-body {
+    padding: 0.75rem 0.384rem 0.3rem 0.384rem;
+  }
+
+  .p-card-content {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  app-view-switcher {
+    display: none;
+  }
+}
+
+.fzbz-grouped-cards {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  padding-bottom: 100px;
+}
+
+.p-card-title {
+  margin-left: 5px;
+}
+
+@media (min-device-width: variable.$tablet_breakpoint) {
+  #{$hostDeep} .filter-card {
+    width: 65%;
+    margin: 20px 0;
     .p-card-body {
-      padding: 1rem 1rem 0 1rem !important;
+      padding: 1rem 1rem 0 1rem;
     }
     .p-card-content {
       padding-top: 5px;
       padding-bottom: 5px;
     }
   }
+
   .p-sidebar-content {
     padding: 14px !important;
   }
+
+  app-view-switcher {
+    display: block !important;
+  }
+
+  p-speedDial {
+    display: none;
+  }
+
+  .filter-section-container {
+    margin-bottom: 0;
+  }
+
+  .fzbz-grouped-cards {
+    padding-bottom: 0;
+  }
+}
+
+.filter-section-container {
+  display: grid;
+  justify-items: center;
+  margin-bottom: 15px;
+}
+
+.fzbz-individual-cards {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.individual-card {
+  height: 8rem !important;
 }
