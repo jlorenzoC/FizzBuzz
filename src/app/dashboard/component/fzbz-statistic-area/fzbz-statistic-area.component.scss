@@ -1,18 +1,40 @@
-.fzbz-btn-with-badge {
+@use '../../../../styles' as variable;
+
+.statistic-container {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: center;
+}
+
+.statistic-button-with-badge {
+  position: relative;
   p-badge {
-    & {
-      top: -13px;
-      left: 58%;
-    }
+    position: absolute;
+    top: -13px;
+    left: 58%;
     &#fzbz-fizzbuzz-badge {
       left: 65%;
     }
   }
 }
 
-@media (max-device-width: 931px) {
-  :host::ng-deep .p-button.p-button-sm {
-    font-size: 0.7rem;
-    padding: 0.62475rem 0.875rem;
+.p-button.p-button-sm {
+  font-size: 0.7rem;
+  padding: 0.62475rem 0.875rem;
+}
+
+@media (min-device-width: variable.$tablet_breakpoint) {
+  .statistic-container {
+    justify-content: end !important;
+  }
+
+  .p-button.p-button-sm {
+    font-size: initial;
+  }
+}
+
+@media (max-device-width: variable.$xsm_breakpoint) {
+  .statistic-container {
+    align-content: center;
   }
 }

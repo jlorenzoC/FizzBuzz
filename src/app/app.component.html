@@ -1,16 +1,5 @@
-<section
-  class="
-    fzbz-scroll-search-top-bar
-    flex-grow-1 flex-shrink-1 flex flex-wrap
-    h-auto
-  "
->
-  <p-sidebar
-    position="top"
-    [(visible)]="displayTopBar"
-    [modal]="false"
-    class="flex-grow-1 flex flex-wrap h-auto z-5"
-  >
+<section class="fzbz-scroll-search-top-bar">
+  <p-sidebar position="top" [(visible)]="displayTopBar" [modal]="false">
     <app-dashboard-inside-sidebar
       [numbersGenerationFinished]="
         numbersToProcessByFzBzPipe.length
@@ -26,12 +15,10 @@
   </p-sidebar>
 </section>
 
-<section class="fzbz-filter flex justify-content-center mb-3 md:mb-0">
+<section class="filter-section-container">
   <p-card
     [@hideFilterCard]="displayTopBar ? 'hide' : 'show'"
-    id="fizzbuzz-filter-card"
-    class="md:mt-4 md:mb-3 md:w-8 lg:w-7 w-full z-5"
-    styleClass="shadow-8"
+    class="filter-card shadow"
   >
     <app-input-search-by-number
       [filteredElements]="numbersToProcessByFzBzPipe | slice: 0"
@@ -56,30 +43,18 @@
   </p-card>
 </section>
 
-<section
-  class="
-    flex
-    justify-content-center
-    align-content-center align-items-stretch
-    flex-wrap flex-row
-  "
-  *ngIf="isGroupedCardViewActivated"
->
+<section class="fzbz-grouped-cards" *ngIf="isGroupedCardViewActivated">
   <ng-container *ngIf="groupedCards">
     <app-grouped-info
       [group]="group"
       style="width: 320px"
-      class="p-2 flex flex-shrink-0"
       *ngFor="let group of groupedCards"
       [filterCriteria]="filterValue"
     ></app-grouped-info>
   </ng-container>
 </section>
 
-<section
-  *ngIf="isIndividualCardViewActivated"
-  class="fzbz-cards flex justify-content-center flex-wrap"
->
+<section *ngIf="isIndividualCardViewActivated" class="fzbz-individual-cards">
   <ng-container
     *ngIf="
       numbersToProcessByFzBzPipe.length
@@ -90,11 +65,12 @@
   >
     <p-card
       [attr.data-key]="numberToProcessByFzBzPipe"
-      class="fizzbuzz-card"
+      class="fizzbuzz-card shadow"
       *ngFor="let numberToProcessByFzBzPipe of cardsFiltered"
-      styleClass="h-8rem m-3 shadow-8 text-900"
+      styleClass="shadow-8"
       [style]="{
         width: '300px',
+        height: '8rem',
         position: 'relative',
         opacity: (numberToProcessByFzBzPipe | fizzbuzz) === '' ? '0.9' : '1',
         backgroundColor:
@@ -102,7 +78,7 @@
       }"
     >
       <ng-template pTemplate="header">
-        <span class="p-card-title absolute card-title2">
+        <span class="p-card-title">
           {{ numberToProcessByFzBzPipe }}
         </span>
       </ng-template>
@@ -116,13 +92,13 @@
   </ng-container>
   <ng-template #skeletonCards>
     <app-skeleton-fzbz-cards
-      class="fadein"
+      class="shadow"
       *ngFor="let numberToProcessByFzBzPipe of mockCards"
     ></app-skeleton-fzbz-cards>
   </ng-template>
 </section>
 
-<p-scrollTop class="z-2"></p-scrollTop>
+<p-scrollTop></p-scrollTop>
 
 <p-speedDial
   aria-label="Choose either the grouped or individual view for the FizzBuzz numbers"
@@ -133,9 +109,6 @@
   buttonClassName="p-button-outlined"
   [style]="{ position: 'fixed', bottom: '20px', left: '5px' }"
   buttonClassName="p-button-primary"
-  class="sm:hidden"
 ></p-speedDial>
 
-<div class="flex justify-content-center">
-  <p-messages class="fixed mx-1 sm:mx-0 bottom-0 z-5"></p-messages>
-</div>
+<p-messages></p-messages>

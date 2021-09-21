@@ -10,6 +10,7 @@ import { CheckStore } from 'src/app/models/CheckStore';
 @Component({
   selector: 'app-input-search-by-number',
   templateUrl: 'input-search-by-number.component.html',
+  styleUrls: ['input-search-by-number.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputSearchByNumberComponent {

@@ -11,16 +11,7 @@ import { environment } from './../../../../environments/environment';
 @Component({
   selector: 'app-dashboard-inside-sidebar',
   templateUrl: './dashboard-inside-sidebar.component.html',
-  styles: [
-    `
-      @media (min-device-width: 576px) {
-        img#fzbz-sidebar-image {
-          width: 110px !important;
-        }
-      }
-    `,
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrls: ['./dashboard-inside-sidebar.component.scss'],
 })
 export class DashboardInsideSidebarComponent {
   @Input() numbersGenerationFinished = true;

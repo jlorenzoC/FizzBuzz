@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
+$tablet_breakpoint: 769px;
+$xsm_breakpoint: 300px;
+
 body {
   height: 100vh;
   margin: 0;
@@ -16,6 +19,19 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.164);
+  background-color: #00000055;
   z-index: -1;
+}
+
+.number-highlighted {
+  background-color: #673ab7;
+  color: white;
+  border-radius: 16px;
+  padding: 5px;
+  padding: 0 10px;
+}
+
+.shadow {
+  box-shadow: 0 9px 46px 8px #0000001f, 0 24px 38px 3px #00000024,
+    0 11px 15px #0003 !important;
 }

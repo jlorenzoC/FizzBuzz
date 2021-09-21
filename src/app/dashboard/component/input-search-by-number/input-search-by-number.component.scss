@@ -1,0 +1,101 @@
+@use '../../../../styles' as variable;
+
+.input-container {
+  display: grid;
+  grid-template-rows: auto 1.7rem auto 3.6rem;
+  justify-items: center;
+
+  .p-card-title {
+    font-weight: lighter;
+  }
+
+  .p-card-subtitle {
+    grid-row: 2 / 3;
+    font-size: small;
+  }
+
+  .p-input-icon-right {
+    grid-row: 3 / 4;
+    width: max(16rem, 50%);
+    input {
+      width: 100%;
+    }
+  }
+
+  app-fzbz-statistic-area {
+    grid-row: 4 / 5;
+    ::ng-deep.statistic-container {
+      transform: translateY(25px);
+    }
+  }
+
+  .pi.pi-info-circle {
+    cursor: help;
+    color: #808080d3;
+    font-size: 0.7rem;
+  }
+}
+
+.skeleton-title {
+  width: 30%;
+}
+
+.skeleton-subtitle {
+  width: 40%;
+}
+
+.skeleton-input {
+  width: 60%;
+}
+
+.fzbz-decription-text {
+  font-style: italic;
+  text-align: justify;
+}
+
+.pi.pi-info-circle {
+  cursor: help;
+  color: #808080d3;
+  transform: translateY(-10px);
+}
+
+@media (min-device-width: variable.$tablet_breakpoint) {
+  div.input-container {
+    grid-template-rows: auto 2.1rem auto;
+    justify-items: initial;
+  }
+
+  .p-card-title {
+    grid-column: 1 / 2;
+  }
+
+  app-fzbz-statistic-area {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2 !important;
+    ::ng-deep.statistic-container {
+      transform: translateY(0) !important;
+    }
+  }
+
+  .p-card-subtitle {
+    grid-column: 1 / 3;
+    &.skeleton-subtitle {
+      width: 50%;
+    }
+  }
+
+  .p-input-icon-right,
+  .skeleton-input {
+    grid-column: 1 / 3;
+    width: 100% !important;
+  }
+}
+
+@media (max-device-width: variable.$xsm_breakpoint) {
+  .p-card-subtitle {
+    font-size: smaller;
+  }
+  .input-container {
+    grid-template-rows: auto 2.1rem auto 2.5rem;
+  }
+}

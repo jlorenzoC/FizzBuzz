@@ -4,9 +4,16 @@ $borderRadius: 20px 20px 0 0;
   .p-card-header {
     display: flex;
     justify-content: center;
+    position: relative;
+    p-tag {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+    }
     img {
-      max-height: 150px;
+      max-height: 110px;
       width: auto;
+      padding: 10px;
       &.grouped-Buzz-image {
         transform: scale(1.5);
       }
@@ -44,4 +51,16 @@ $borderRadius: 20px 20px 0 0;
       background-color: #dddddd;
     }
   }
+}
+
+ul {
+  text-decoration: none;
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: larger;
 }
