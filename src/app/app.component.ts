@@ -6,8 +6,8 @@ import { take } from 'rxjs/operators';
 import { hideShow } from './animations';
 import { CheckStore } from './models/CheckStore';
 import { FilteredElements } from './models/FilteredElements';
-import { HandleUnrecoverableStateService } from './services/handle-unrecoverable-state.service';
-import { StaticResourceService } from './services/static-resource.service';
+import { HandleUnrecoverableStateService } from './services/handle-unrecoverable-state/handle-unrecoverable-state.service';
+import { StaticResourceService } from './services/static-resource/static-resource.service';
 
 @Component({
   selector: 'app-root',

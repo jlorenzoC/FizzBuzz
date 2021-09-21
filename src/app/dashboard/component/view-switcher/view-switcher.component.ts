@@ -1,4 +1,3 @@
-import { StaticResourceService } from './../../../services/static-resource.service';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -6,6 +5,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
+import { StaticResourceService } from 'src/app/services/static-resource/static-resource.service';
 
 @Component({
   selector: 'app-view-switcher',
