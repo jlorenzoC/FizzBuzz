@@ -66,8 +66,14 @@
     <p-card
       [attr.data-key]="numberToProcessByFzBzPipe"
       class="fizzbuzz-card shadow"
-      *ngFor="let numberToProcessByFzBzPipe of cardsFiltered"
-      styleClass="shadow-8"
+      *ngFor="
+        let numberToProcessByFzBzPipe of cardsFiltered;
+        trackBy: trackByFn
+      "
+      [styleClass]="
+        'shadow-8 ' +
+        (isEvenNumber(numberToProcessByFzBzPipe) ? 'floralwhite' : '')
+      "
       [style]="{
         width: '300px',
         height: '8rem',
@@ -88,6 +94,13 @@
           number: numberToProcessByFzBzPipe
         }"
       ></app-image-badge>
+      <ng-container *ngIf="isEvenNumber(numberToProcessByFzBzPipe)">
+        <p-badge
+          class="even-number-badge"
+          severity="info"
+          value="Even number"
+        ></p-badge>
+      </ng-container>
     </p-card>
   </ng-container>
   <ng-template #skeletonCards>

@@ -95,6 +95,18 @@ export class AppComponent implements OnInit, OnDestroy {
     this.filter();
   }
 
+  isEvenNumber(numb: number): boolean {
+    return numb % 2 === 0;
+  }
+
+  trackByFn(numb: number): number {
+    return numb;
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
   private getNewFilteredElements(
     checkStore: CheckStore = this.checkStore
   ): FilteredElements {
@@ -113,9 +125,5 @@ export class AppComponent implements OnInit, OnDestroy {
     const indexOfZero = input.value.trim().indexOf('0');
     if (indexOfZero === 0) return (this.filterValue = input.value = '');
     return (this.filterValue = input.value.trim());
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 }

@@ -104,3 +104,18 @@ p-sidebar .p-sidebar {
 .individual-card {
   height: 8rem !important;
 }
+
+::ng-deep .floralwhite {
+  background: floralwhite !important;
+}
+
+::ng-deep .even-number-badge {
+  position: absolute;
+  left: -23px;
+  top: 65px;
+  transform: rotate(270deg);
+  .p-badge-info {
+    background-color: #414e5800 !important;
+    color: rgb(52, 52, 52);
+  }
+}
