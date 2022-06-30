@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1632233908835,
+  "timestamp": 1656551997281,
   "index": "/FizzBuzz/index.html",
   "assetGroups": [
     {
@@ -12,11 +12,11 @@
       },
       "urls": [
         "/FizzBuzz/index.html",
-        "/FizzBuzz/main.5063df37828f27d5de84.js",
+        "/FizzBuzz/main.42acc82f4b7227db796f.js",
         "/FizzBuzz/manifest.webmanifest",
-        "/FizzBuzz/polyfills.c0f66acce2f58f4dc2a0.js",
-        "/FizzBuzz/runtime.7d7037a4a4625f3b56a2.js",
-        "/FizzBuzz/styles.9bd2858e017b2dbd104d.css"
+        "/FizzBuzz/polyfills.b3cd247ce97630c70cf3.js",
+        "/FizzBuzz/runtime.26e955e9cbbfde105ab6.js",
+        "/FizzBuzz/styles.8a1871bca1bac31e880b.css"
       ],
       "patterns": []
     },
@@ -58,18 +58,18 @@
     "/FizzBuzz/assets/image/webp/FizzBuzz.webp": "f0850c3842c14e05392f4965add02f1a3c04d645",
     "/FizzBuzz/assets/image/webp/buzz.webp": "815696eed7cbe1051dccfbeb0f2ec3dc28843a56",
     "/FizzBuzz/assets/image/webp/favicon.webp": "8afb4ec51edef499424f217fef989336971e318d",
-    "/FizzBuzz/assets/image/webp/fizz.webp": "5bf37436fd833dcff792e9a0ff4d72caaa4e2682",
+    "/FizzBuzz/assets/image/webp/fizz.webp": "38230eda3ea589341349413066091636d3f1ac0f",
     "/FizzBuzz/assets/image/webp/fizzbuzz-icon.webp": "7e2cc97e740ce8e76bd05d0ef6517b9bd10ebacc",
     "/FizzBuzz/assets/image/webp/image-not-found.webp": "895ab63d9b8850857e4d0c83ffb820c2ba41fdb2",
     "/FizzBuzz/assets/image/webp/math-background.webp": "007baff92602b8176a11950f7cd0a557cdf20c84",
     "/FizzBuzz/assets/image/webp/neutral.webp": "d21b85c3b717abdc015b5a880732e2adf7c1681a",
     "/FizzBuzz/color.6441e63a57ccc5105bad.png": "ff4c4bcb2207891b292f544edb4da9d2df5d45cf",
     "/FizzBuzz/hue.f8505bd4d6f3e3aa435b.png": "f81ae627637a684614aa726e206c73ce099a01fd",
-    "/FizzBuzz/index.html": "c8dc2e29e849045a926615db491adc4bbe50238d",
-    "/FizzBuzz/main.5063df37828f27d5de84.js": "b58f5ee31ee64b87f3d479cf0b014d92bdd52bf7",
+    "/FizzBuzz/index.html": "43a207535330f88cc4491d56e0f4a70b7af39786",
+    "/FizzBuzz/main.42acc82f4b7227db796f.js": "7b052b00963579ba9897459156a68edbe5636d43",
     "/FizzBuzz/manifest.webmanifest": "0ab77d3d69153c3d95f5d8bc377090d946643f3c",
     "/FizzBuzz/math-background.025df02023ff7fe504b1.webp": "007baff92602b8176a11950f7cd0a557cdf20c84",
-    "/FizzBuzz/polyfills.c0f66acce2f58f4dc2a0.js": "ee4e631d2b24096557de6884c8f5d50147097bbe",
+    "/FizzBuzz/polyfills.b3cd247ce97630c70cf3.js": "6494f473e5b9201b0d274707214cced6de26c7ce",
     "/FizzBuzz/primeicons.3a0d4a58da62cf7c55bb.ttf": "13889b5e1915891dd548d6b71c1cccddb469e13d",
     "/FizzBuzz/primeicons.c55d94a248721abbd220.svg": "4a2c5258656a8b900ddeabf5ac62aace724f5a0d",
     "/FizzBuzz/primeicons.dfbfef2de4bfb34e9722.eot": "6441e65a2458d0c813cd2bf6e8648c1f54327bdb",
@@ -80,8 +80,8 @@
     "/FizzBuzz/roboto-v20-latin-ext_latin-700.8aba6dc5d991e4367d7a.woff": "47950a5a898a662ff110c52d2b53d9d3f5e224cf",
     "/FizzBuzz/roboto-v20-latin-ext_latin-regular.5cb5c8f08bb4e6cb64c3.woff2": "a39cd33a2457d12a3eb61e0841c91b73e4af90ac",
     "/FizzBuzz/roboto-v20-latin-ext_latin-regular.ae804dc012b1b5255474.woff": "c574d647bbf9412b82b0cdcb0e702a3a93ffd022",
-    "/FizzBuzz/runtime.7d7037a4a4625f3b56a2.js": "2356d8dc24f5e4dd84edb3cdfc1f69319be0ece7",
-    "/FizzBuzz/styles.9bd2858e017b2dbd104d.css": "01bb5035661847095fc689aaed9b3d9be7734b9d"
+    "/FizzBuzz/runtime.26e955e9cbbfde105ab6.js": "1a8c6fe25d3a13a82768b260ed5439019568a9c9",
+    "/FizzBuzz/styles.8a1871bca1bac31e880b.css": "104996225194284f53775858a83e33857aa0c78e"
   },
   "navigationUrls": [
     {
