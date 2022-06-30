@@ -66,10 +66,7 @@
     <p-card
       [attr.data-key]="numberToProcessByFzBzPipe"
       class="fizzbuzz-card shadow"
-      *ngFor="
-        let numberToProcessByFzBzPipe of cardsFiltered;
-        trackBy: trackByFn
-      "
+      *ngFor="let numberToProcessByFzBzPipe of cardsFiltered"
       [styleClass]="
         'shadow-8 ' +
         (isEvenNumber(numberToProcessByFzBzPipe) ? 'floralwhite' : '')

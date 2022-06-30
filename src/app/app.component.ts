@@ -99,10 +99,6 @@ export class AppComponent implements OnInit, OnDestroy {
     return numb % 2 === 0;
   }
 
-  trackByFn(numb: number): number {
-    return numb;
-  }
-
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
