@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1656551997281,
+  "timestamp": 1656553339079,
   "index": "/FizzBuzz/index.html",
   "assetGroups": [
     {
@@ -55,7 +55,7 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/FizzBuzz/assets/image/webp/FizzBuzz.webp": "f0850c3842c14e05392f4965add02f1a3c04d645",
+    "/FizzBuzz/assets/image/webp/FizzBuzz.webp": "19f0897eca776a1207667ef593d06aea0646cd9a",
     "/FizzBuzz/assets/image/webp/buzz.webp": "815696eed7cbe1051dccfbeb0f2ec3dc28843a56",
     "/FizzBuzz/assets/image/webp/favicon.webp": "8afb4ec51edef499424f217fef989336971e318d",
     "/FizzBuzz/assets/image/webp/fizz.webp": "38230eda3ea589341349413066091636d3f1ac0f",
